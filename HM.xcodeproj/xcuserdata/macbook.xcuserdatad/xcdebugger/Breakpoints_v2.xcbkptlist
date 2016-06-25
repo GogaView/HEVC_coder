@@ -9,44 +9,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "479125291.669618"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1637"
-            endingLineNumber = "1637"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "479126471.266101"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1684"
-            endingLineNumber = "1684"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "source/Lib/TLibEncoder/TEncSlice.cpp"
-            timestampString = "479131982.85035"
+            timestampString = "488564230.483538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "806"
-            endingLineNumber = "806"
+            startingLineNumber = "845"
+            endingLineNumber = "845"
             landmarkName = "TEncSlice::compressSlice( TComPic* pcPic, const Bool bCompressEntireSlice, const Bool bFastDeltaQP )"
             landmarkType = "5">
          </BreakpointContent>
@@ -80,118 +48,6 @@
             startingLineNumber = "2084"
             endingLineNumber = "2084"
             landmarkName = "TEncGOP::xCalculateAddPSNR( TComPic* pcPic, TComPicYuv* pcPicD, const AccessUnit&amp; accessUnit, Double dEncTime, const InputColourSpaceConversion conversion, const Bool printFrameMSE )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
-            timestampString = "486850987.068436"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "717"
-            endingLineNumber = "717"
-            landmarkName = "TDecCu::xIntraRecQT(TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ChannelType chType, TComTU &amp;rTu)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
-            timestampString = "486850987.068436"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "713"
-            endingLineNumber = "713"
-            landmarkName = "TDecCu::xIntraRecQT(TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ChannelType chType, TComTU &amp;rTu)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
-            timestampString = "479568708.609637"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
-            landmarkName = "TDecCu::xDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx, UInt uiDepth )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
-            timestampString = "479568719.833048"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
-            landmarkName = "TDecCu::xDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx, UInt uiDepth )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
-            timestampString = "486850987.068436"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "753"
-            endingLineNumber = "753"
-            landmarkName = "TDecCu::xDecodeInterTexture ( TComDataCU* pcCU, UInt uiDepth )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
-            timestampString = "479569320.997174"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "421"
-            endingLineNumber = "421"
-            landmarkName = "TDecCu::xReconInter( TComDataCU* pcCU, UInt uiDepth )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
-            timestampString = "479570450.510013"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "390"
-            endingLineNumber = "390"
-            landmarkName = "TDecCu::xDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx, UInt uiDepth )"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -266,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "source/Lib/TLibEncoder/TEncSlice.cpp"
-            timestampString = "480270924.886354"
+            timestampString = "488538493.092354"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "792"
-            endingLineNumber = "792"
+            startingLineNumber = "798"
+            endingLineNumber = "798"
             landmarkName = "TEncSlice::compressSlice( TComPic* pcPic, const Bool bCompressEntireSlice, const Bool bFastDeltaQP )"
             landmarkType = "5">
          </BreakpointContent>
@@ -281,76 +137,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncCu.cpp"
-            timestampString = "480271038.892766"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
-            landmarkName = "TEncCu::compressCtu( TComDataCU* pCtu )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncCu.cpp"
-            timestampString = "480272069.68235"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "455"
-            endingLineNumber = "455"
-            landmarkName = "TEncCu::xCompressCU( TComDataCU*&amp; rpcBestCU, TComDataCU*&amp; rpcTempCU, const UInt uiDepth )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComPrediction.cpp"
-            timestampString = "480273209.916916"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "645"
-            endingLineNumber = "645"
-            landmarkName = "TComPrediction::xPredInterBlk(const ComponentID compID, TComDataCU *cu, TComPicYuv *refPic, UInt partAddr, TComMv *mv, Int width, Int height, TComYuv *dstPic, Bool bi, const Int bitDepth )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncCu.cpp"
-            timestampString = "480275129.449677"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1219"
-            endingLineNumber = "1219"
-            landmarkName = "TEncCu::xCheckRDCostMerge2Nx2N( TComDataCU*&amp; rpcBestCU, TComDataCU*&amp; rpcTempCU DEBUG_STRING_FN_DECLARE(sDebug), Bool *earlyDetectionSkipMode )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "488141013.780281"
+            timestampString = "488544183.724379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4449"
-            endingLineNumber = "4449"
+            startingLineNumber = "4458"
+            endingLineNumber = "4458"
             landmarkName = "TEncSearch::encodeResAndCalcRdInterCU( TComDataCU* pcCU, TComYuv* pcYuvOrg, TComYuv* pcYuvPred, TComYuv* pcYuvResi, TComYuv* pcYuvResiBest, TComYuv* pcYuvRec, Bool bSkipResidual DEBUG_STRING_FN_DECLARE(sDebug) )"
             landmarkType = "5">
          </BreakpointContent>
@@ -358,153 +150,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "482603479.285681"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1402"
-            endingLineNumber = "1402"
-            landmarkName = "TComTrQuant::xDeQuant( TComTU &amp;rTu, const TCoeff * pSrc, TCoeff * pDes, const ComponentID compID, const QpParam &amp;cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            condition = "update distortion"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "482000662.087401"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1397"
-            endingLineNumber = "1397"
-            landmarkName = "TEncSearch::xIntraCodingTUBlock( TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], const Bool checkCrossCPrediction, Distortion&amp; ruiDist, const ComponentID compID, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug) ,Int default0Save1Load2 )"
-            landmarkType = "5">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
-                  <ActionContent
-                     consoleCommand = "">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "488141013.780281"
+            timestampString = "488544183.724379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2646"
-            endingLineNumber = "2646"
-            landmarkName = "TEncSearch::estIntraPredChromaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncCu.cpp"
-            timestampString = "482001868.525663"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "450"
-            endingLineNumber = "450"
-            landmarkName = "TEncCu::xCompressCU( TComDataCU*&amp; rpcBestCU, TComDataCU*&amp; rpcTempCU, const UInt uiDepth )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "482002124.138307"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1285"
-            endingLineNumber = "1285"
-            landmarkName = "TEncSearch::xIntraCodingTUBlock( TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], const Bool checkCrossCPrediction, Distortion&amp; ruiDist, const ComponentID compID, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug) ,Int default0Save1Load2 )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "482002125.840509"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1288"
-            endingLineNumber = "1288"
-            landmarkName = "TEncSearch::xIntraCodingTUBlock( TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], const Bool checkCrossCPrediction, Distortion&amp; ruiDist, const ComponentID compID, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug) ,Int default0Save1Load2 )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "482603479.285681"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1306"
-            endingLineNumber = "1306"
-            landmarkName = "TComTrQuant::xQuant( TComTU &amp;rTu, TCoeff * pSrc, TCoeff * pDes, #if ADAPTIVE_QP_SELECTION TCoeff *pArlDes, #endif TCoeff &amp;uiAbsSum, const ComponentID compID, const QpParam &amp;cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "482603479.285681"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1298"
-            endingLineNumber = "1298"
-            landmarkName = "TComTrQuant::xQuant( TComTU &amp;rTu, TCoeff * pSrc, TCoeff * pDes, #if ADAPTIVE_QP_SELECTION TCoeff *pArlDes, #endif TCoeff &amp;uiAbsSum, const ComponentID compID, const QpParam &amp;cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "486847882.093168"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1705"
-            endingLineNumber = "1705"
-            landmarkName = "TComTrQuant::transformNxN( TComTU &amp; rTu, const ComponentID compID, Pel * pcResidual, const UInt uiStride, TCoeff * rpcCoeff, #if ADAPTIVE_QP_SELECTION TCoeff * pcArlCoeff, #endif TCoeff &amp; uiAbsSum, const QpParam &amp; cQP )"
+            startingLineNumber = "2655"
+            endingLineNumber = "2655"
+            landmarkName = "TEncSearch::estIntraPredChromaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug), bool isNormalDequant )"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -546,390 +201,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "482603479.285681"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1303"
-            endingLineNumber = "1303"
-            landmarkName = "TComTrQuant::xQuant( TComTU &amp;rTu, TCoeff * pSrc, TCoeff * pDes, #if ADAPTIVE_QP_SELECTION TCoeff *pArlDes, #endif TCoeff &amp;uiAbsSum, const ComponentID compID, const QpParam &amp;cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "482009793.8324"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1609"
-            endingLineNumber = "1609"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "482009903.518022"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1611"
-            endingLineNumber = "1611"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "482603479.285681"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1319"
-            endingLineNumber = "1319"
-            landmarkName = "TComTrQuant::xQuant( TComTU &amp;rTu, TCoeff * pSrc, TCoeff * pDes, #if ADAPTIVE_QP_SELECTION TCoeff *pArlDes, #endif TCoeff &amp;uiAbsSum, const ComponentID compID, const QpParam &amp;cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "486847882.093168"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1440"
-            endingLineNumber = "1440"
-            landmarkName = "TComTrQuant::xDeQuant( TComTU &amp;rTu, const TCoeff * pSrc, TCoeff * pDes, const ComponentID compID, const QpParam &amp;cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "486847882.093168"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1442"
-            endingLineNumber = "1442"
-            landmarkName = "TComTrQuant::xDeQuant( TComTU &amp;rTu, const TCoeff * pSrc, TCoeff * pDes, const ComponentID compID, const QpParam &amp;cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "482514674.738408"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1165"
-            endingLineNumber = "1165"
-            landmarkName = "TComTrQuant::xQuant( TComTU &amp;rTu, TCoeff * pSrc, TCoeff * pDes, #if ADAPTIVE_QP_SELECTION TCoeff *pArlDes, #endif TCoeff &amp;uiAbsSum, const ComponentID compID, const QpParam &amp;cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "482354664.456682"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1396"
-            endingLineNumber = "1396"
-            landmarkName = "TEncSearch::xIntraCodingTUBlock( TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], const Bool checkCrossCPrediction, Distortion&amp; ruiDist, const ComponentID compID, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug) ,Int default0Save1Load2 )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComRdCost.cpp"
-            timestampString = "482510747.099906"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1012"
-            endingLineNumber = "1012"
-            landmarkName = "TComRdCost::xGetSSE16( DistParam* pcDtParam )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComRdCost.cpp"
-            timestampString = "482510903.425952"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "983"
-            endingLineNumber = "983"
-            landmarkName = "TComRdCost::xGetSSE16( DistParam* pcDtParam )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "482518312.945117"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "945"
-            endingLineNumber = "945"
-            landmarkName = "xITrMxN(Int bitDepth, TCoeff *coeff, TCoeff *block, Int iWidth, Int iHeight, Bool useDST, const Int maxLog2TrDynamicRange)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncBinCoderCABAC.cpp"
-            timestampString = "482578847.007772"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
-            landmarkName = "TEncBinCABAC::encodeBin( UInt binValue, ContextModel &amp;rcCtxModel )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "482580090.264943"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1164"
-            endingLineNumber = "1164"
-            landmarkName = "TComTrQuant::xQuant( TComTU &amp;rTu, TCoeff * pSrc, TCoeff * pDes, #if ADAPTIVE_QP_SELECTION TCoeff *pArlDes, #endif TCoeff &amp;uiAbsSum, const ComponentID compID, const QpParam &amp;cQP )"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TComTrQuant::xQuant(TComTU&amp;, int*, int*, int*, int&amp;, ComponentID, QpParam const&amp;)"
-                  moduleName = "TAppEncoder"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbook/Desktop/%D0%94%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC/%D0%A1%D0%B5%D0%BC%D0%B5%D1%81%D1%82%D1%80%202/Refer/trunk/source/Lib/TLibCommon/TComTrQuant.cpp"
-                  timestampString = "486937935.287833"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1164"
-                  endingLineNumber = "1164"
-                  offsetFromSymbolStart = "675">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TComTrQuant::xQuant(TComTU&amp;, int*, int*, int*, int&amp;, ComponentID, QpParam const&amp;)"
-                  moduleName = "TAppEncoder"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbook/Desktop/%D0%94%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC/%D0%A1%D0%B5%D0%BC%D0%B5%D1%81%D1%82%D1%80%202/Refer/trunk/source/Lib/TLibCommon/TComTrQuant.cpp"
-                  timestampString = "486937935.288389"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1164"
-                  endingLineNumber = "1164"
-                  offsetFromSymbolStart = "682">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "482580727.75598"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1184"
-            endingLineNumber = "1184"
-            landmarkName = "TComTrQuant::xQuant( TComTU &amp;rTu, TCoeff * pSrc, TCoeff * pDes, #if ADAPTIVE_QP_SELECTION TCoeff *pArlDes, #endif TCoeff &amp;uiAbsSum, const ComponentID compID, const QpParam &amp;cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "486847882.093168"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2543"
-            endingLineNumber = "2543"
-            landmarkName = "TComTrQuant::xRateDistOptQuant ( TComTU &amp;rTu, TCoeff * plSrcCoeff, TCoeff * piDstCoeff, #if ADAPTIVE_QP_SELECTION TCoeff * piArlDstCoeff, #endif TCoeff &amp;uiAbsSum, const ComponentID compID, const QpParam &amp;cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "486847882.093168"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2689"
-            endingLineNumber = "2689"
-            landmarkName = "TComTrQuant::xRateDistOptQuant ( TComTU &amp;rTu, TCoeff * plSrcCoeff, TCoeff * piDstCoeff, #if ADAPTIVE_QP_SELECTION TCoeff * piArlDstCoeff, #endif TCoeff &amp;uiAbsSum, const ComponentID compID, const QpParam &amp;cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "482603479.285681"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1296"
-            endingLineNumber = "1296"
-            landmarkName = "TComTrQuant::xQuant( TComTU &amp;rTu, TCoeff * pSrc, TCoeff * pDes, #if ADAPTIVE_QP_SELECTION TCoeff *pArlDes, #endif TCoeff &amp;uiAbsSum, const ComponentID compID, const QpParam &amp;cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "486847882.093168"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1790"
-            endingLineNumber = "1790"
-            landmarkName = "TComTrQuant::invTransformNxN( TComTU &amp;rTu, const ComponentID compID, Pel *pcResidual, const UInt uiStride, TCoeff * pcCoeff, const QpParam &amp;cQP DEBUG_STRING_FN_DECLAREP(psDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "486847882.093168"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2167"
-            endingLineNumber = "2167"
-            landmarkName = "TComTrQuant::xIT( const Int channelBitDepth, Bool useDST, TCoeff* plCoef, Pel* pResidual, UInt uiStride, Int iWidth, Int iHeight, const Int maxLog2TrDynamicRange )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "482599711.965876"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "953"
-            endingLineNumber = "953"
-            landmarkName = "xITrMxN(Int bitDepth, TCoeff *coeff, TCoeff *block, Int iWidth, Int iHeight, Bool useDST, const Int maxLog2TrDynamicRange)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTU.cpp"
-            timestampString = "482601767.744777"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
-            landmarkName = "TComTU::useDST(const ComponentID compID)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "486847882.093168"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1717"
-            endingLineNumber = "1717"
-            landmarkName = "TComTrQuant::invTransformNxN( TComTU &amp;rTu, const ComponentID compID, Pel *pcResidual, const UInt uiStride, TCoeff * pcCoeff, const QpParam &amp;cQP DEBUG_STRING_FN_DECLAREP(psDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "source/Lib/TLibEncoder/TEncGOP.cpp"
             timestampString = "482679454.145181"
             startingColumnNumber = "9223372036854775807"
@@ -946,61 +217,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "486847882.093168"
+            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
+            timestampString = "488544183.724379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1612"
-            endingLineNumber = "1612"
-            landmarkName = "TComTrQuant::transformNxN( TComTU &amp; rTu, const ComponentID compID, Pel * pcResidual, const UInt uiStride, TCoeff * rpcCoeff, #if ADAPTIVE_QP_SELECTION TCoeff * pcArlCoeff, #endif TCoeff &amp; uiAbsSum, const QpParam &amp; cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "486847882.093168"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1697"
-            endingLineNumber = "1697"
-            landmarkName = "TComTrQuant::transformNxN( TComTU &amp; rTu, const ComponentID compID, Pel * pcResidual, const UInt uiStride, TCoeff * rpcCoeff, #if ADAPTIVE_QP_SELECTION TCoeff * pcArlCoeff, #endif TCoeff &amp; uiAbsSum, const QpParam &amp; cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "483357768.554798"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1292"
-            endingLineNumber = "1292"
-            landmarkName = "TComTrQuant::xQuant( TComTU &amp;rTu, TCoeff * pSrc, TCoeff * pDes, #if ADAPTIVE_QP_SELECTION TCoeff *pArlDes, #endif TCoeff &amp;uiAbsSum, const ComponentID compID, const QpParam &amp;cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "483357780.343559"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1285"
-            endingLineNumber = "1285"
-            landmarkName = "TComTrQuant::xQuant( TComTU &amp;rTu, TCoeff * pSrc, TCoeff * pDes, #if ADAPTIVE_QP_SELECTION TCoeff *pArlDes, #endif TCoeff &amp;uiAbsSum, const ComponentID compID, const QpParam &amp;cQP )"
+            startingLineNumber = "2490"
+            endingLineNumber = "2490"
+            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug), bool isNormalDequant)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1011,12 +234,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "483475159.651822"
+            timestampString = "488544183.724379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1578"
-            endingLineNumber = "1578"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
+            startingLineNumber = "2488"
+            endingLineNumber = "2488"
+            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug), bool isNormalDequant)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1027,12 +250,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "483475177.850343"
+            timestampString = "488544183.724379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1580"
-            endingLineNumber = "1580"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
+            startingLineNumber = "2524"
+            endingLineNumber = "2524"
+            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug), bool isNormalDequant)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1043,12 +266,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "483475330.935757"
+            timestampString = "488544183.724379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1595"
-            endingLineNumber = "1595"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
+            startingLineNumber = "2656"
+            endingLineNumber = "2656"
+            landmarkName = "TEncSearch::estIntraPredChromaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug), bool isNormalDequant )"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1059,12 +282,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "483475332.005357"
+            timestampString = "488544183.724379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1596"
-            endingLineNumber = "1596"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
+            startingLineNumber = "2209"
+            endingLineNumber = "2209"
+            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug), bool isNormalDequant)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1075,12 +298,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "483475347.396037"
+            timestampString = "488544183.724379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1592"
-            endingLineNumber = "1592"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
+            startingLineNumber = "2400"
+            endingLineNumber = "2400"
+            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug), bool isNormalDequant)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1091,12 +314,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "483475747.43974"
+            timestampString = "488544183.724379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1306"
-            endingLineNumber = "1306"
-            landmarkName = "TEncSearch::xIntraCodingTUBlock( TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], const Bool checkCrossCPrediction, Distortion&amp; ruiDist, const ComponentID compID, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug) ,Int default0Save1Load2 )"
+            startingLineNumber = "2407"
+            endingLineNumber = "2407"
+            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug), bool isNormalDequant)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1107,635 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "483476285.647853"
+            timestampString = "488544183.724379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1640"
-            endingLineNumber = "1640"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTU.cpp"
-            timestampString = "483476450.018505"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "TComTURecurse::nextSection(const TComTU &amp;parent)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "486847882.093168"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1673"
-            endingLineNumber = "1673"
-            landmarkName = "TComTrQuant::transformNxN( TComTU &amp; rTu, const ComponentID compID, Pel * pcResidual, const UInt uiStride, TCoeff * rpcCoeff, #if ADAPTIVE_QP_SELECTION TCoeff * pcArlCoeff, #endif TCoeff &amp; uiAbsSum, const QpParam &amp; cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "483478885.517666"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1325"
-            endingLineNumber = "1325"
-            landmarkName = "TEncSearch::xIntraCodingTUBlock( TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], const Bool checkCrossCPrediction, Distortion&amp; ruiDist, const ComponentID compID, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug) ,Int default0Save1Load2 )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "488141013.780281"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2482"
-            endingLineNumber = "2482"
-            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "483559305.881092"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1653"
-            endingLineNumber = "1653"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "483560025.274004"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1654"
-            endingLineNumber = "1654"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "483562460.141441"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1664"
-            endingLineNumber = "1664"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "483562470.484867"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1669"
-            endingLineNumber = "1669"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "484064142.652217"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1671"
-            endingLineNumber = "1671"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "484064149.2992"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1670"
-            endingLineNumber = "1670"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "484064156.144994"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1665"
-            endingLineNumber = "1665"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "484064209.67595"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1696"
-            endingLineNumber = "1696"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "484064211.320641"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1697"
-            endingLineNumber = "1697"
-            landmarkName = "TEncSearch::xRecurIntraCodingLumaQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDistY, #if HHI_RQT_INTRA_SPEEDUP Bool bCheckFirst, #endif Double&amp; dRDCost, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "488141013.780281"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2480"
-            endingLineNumber = "2480"
-            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486333598.7251"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1766"
-            endingLineNumber = "1766"
-            landmarkName = "TEncSearch::xSetIntraResultLumaQT(TComYuv* pcRecoYuv, TComTU &amp;rTu)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486333598.7251"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1767"
-            endingLineNumber = "1767"
-            landmarkName = "TEncSearch::xSetIntraResultLumaQT(TComYuv* pcRecoYuv, TComTU &amp;rTu)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "488141013.780281"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2516"
-            endingLineNumber = "2516"
-            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "486847882.093168"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1674"
-            endingLineNumber = "1674"
-            landmarkName = "TComTrQuant::transformNxN( TComTU &amp; rTu, const ComponentID compID, Pel * pcResidual, const UInt uiStride, TCoeff * rpcCoeff, #if ADAPTIVE_QP_SELECTION TCoeff * pcArlCoeff, #endif TCoeff &amp; uiAbsSum, const QpParam &amp; cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486333598.7251"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2042"
-            endingLineNumber = "2042"
-            landmarkName = "TEncSearch::xRecurIntraChromaCodingQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDist, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486333598.7251"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2056"
-            endingLineNumber = "2056"
-            landmarkName = "TEncSearch::xRecurIntraChromaCodingQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDist, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486333598.7251"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2091"
-            endingLineNumber = "2091"
-            landmarkName = "TEncSearch::xRecurIntraChromaCodingQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDist, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486333598.7251"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2109"
-            endingLineNumber = "2109"
-            landmarkName = "TEncSearch::xRecurIntraChromaCodingQT(TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], Distortion&amp; ruiDist, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "488141013.780281"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2647"
-            endingLineNumber = "2647"
-            landmarkName = "TEncSearch::estIntraPredChromaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486333598.7251"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2142"
-            endingLineNumber = "2142"
-            landmarkName = "TEncSearch::xSetIntraResultChromaQT(TComYuv* pcRecoYuv, TComTU &amp;rTu)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComYuv.cpp"
-            timestampString = "486332277.784179"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
-            landmarkName = "TComYuv::copyPartToPartComponent ( const ComponentID compID, TComYuv* pcYuvDst, const UInt uiPartIdx, const UInt iWidthComponent, const UInt iHeightComponent )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486333336.599643"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1744"
-            endingLineNumber = "1744"
-            landmarkName = "TEncSearch::xSetIntraResultLumaQT(TComYuv* pcRecoYuv, TComTU &amp;rTu)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486333598.7251"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1762"
-            endingLineNumber = "1762"
-            landmarkName = "TEncSearch::xSetIntraResultLumaQT(TComYuv* pcRecoYuv, TComTU &amp;rTu)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486333598.7251"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1757"
-            endingLineNumber = "1757"
-            landmarkName = "TEncSearch::xSetIntraResultLumaQT(TComYuv* pcRecoYuv, TComTU &amp;rTu)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "486334031.816396"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1284"
-            endingLineNumber = "1284"
-            landmarkName = "TComTrQuant::xQuant( TComTU &amp;rTu, TCoeff * pSrc, TCoeff * pDes, #if ADAPTIVE_QP_SELECTION TCoeff *pArlDes, #endif TCoeff &amp;uiAbsSum, const ComponentID compID, const QpParam &amp;cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486492430.93869"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1287"
-            endingLineNumber = "1287"
-            landmarkName = "TEncSearch::xIntraCodingTUBlock( TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], const Bool checkCrossCPrediction, Distortion&amp; ruiDist, const ComponentID compID, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug) ,Int default0Save1Load2 )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486496908.098517"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2201"
-            endingLineNumber = "2201"
-            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486497141.187732"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2392"
-            endingLineNumber = "2392"
-            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "486847882.093168"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1669"
-            endingLineNumber = "1669"
-            landmarkName = "TComTrQuant::transformNxN( TComTU &amp; rTu, const ComponentID compID, Pel * pcResidual, const UInt uiStride, TCoeff * rpcCoeff, #if ADAPTIVE_QP_SELECTION TCoeff * pcArlCoeff, #endif TCoeff &amp; uiAbsSum, const QpParam &amp; cQP )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486815296.356295"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2399"
-            endingLineNumber = "2399"
-            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncCu.cpp"
-            timestampString = "486821190.370031"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1495"
-            endingLineNumber = "1495"
-            landmarkName = "TEncCu::xCheckBestMode( TComDataCU*&amp; rpcBestCU, TComDataCU*&amp; rpcTempCU, UInt uiDepth DEBUG_STRING_FN_DECLARE(sParent) DEBUG_STRING_FN_DECLARE(sTest) DEBUG_STRING_PASS_INTO(Bool bAddSizeInfo) )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
-            timestampString = "486850987.068436"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "682"
-            endingLineNumber = "682"
-            landmarkName = "TDecCu::xReconIntraQT( TComDataCU* pcCU, UInt uiDepth )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
-            timestampString = "486840336.079802"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "530"
-            endingLineNumber = "530"
-            landmarkName = "TDecCu::xIntraRecBlk( TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ComponentID compID, TComTU &amp;rTu)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486841611.635205"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
-            landmarkName = "TEncSearch::init(TEncCfg* pcEncCfg, TComTrQuant* pcTrQuant, Int iSearchRange, Int bipredSearchRange, MESearchMethod motionEstimationSearchMethod, const UInt maxCUWidth, const UInt maxCUHeight, const UInt maxTotalCUDepth, TEncEntropy* pcEntropyCoder, TComRdCost* pcRdCost, TEncSbac*** pppcRDSbacCoder, TEncSbac* pcRDGoOnSbacCoder )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486851495.44466"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2143"
-            endingLineNumber = "2143"
+            startingLineNumber = "2150"
+            endingLineNumber = "2150"
             landmarkName = "TEncSearch::xSetIntraResultChromaQT(TComYuv* pcRecoYuv, TComTU &amp;rTu)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1747,140 +346,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486928086.77202"
+            timestampString = "488544183.724379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1141"
-            endingLineNumber = "1141"
-            landmarkName = "TEncSearch::xIntraCodingTUBlock( TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], const Bool checkCrossCPrediction, Distortion&amp; ruiDist, const ComponentID compID, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug) ,Int default0Save1Load2 )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486928254.409587"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1147"
-            endingLineNumber = "1147"
-            landmarkName = "TEncSearch::xIntraCodingTUBlock( TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE], const Bool checkCrossCPrediction, Distortion&amp; ruiDist, const ComponentID compID, TComTU&amp; rTu DEBUG_STRING_FN_DECLARE(sDebug) ,Int default0Save1Load2 )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncCu.cpp"
-            timestampString = "486928504.823459"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
-            landmarkName = "TEncCu::compressCtu( TComDataCU* pCtu )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486929192.505652"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1740"
-            endingLineNumber = "1740"
-            landmarkName = "TEncSearch::xSetIntraResultLumaQT(TComYuv* pcRecoYuv, TComTU &amp;rTu)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibDecoder/TDecSlice.cpp"
-            timestampString = "486930623.470832"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "TDecSlice::decompressSlice(TComInputBitstream** ppcSubstreams, TComPic* pcPic, TDecSbac* pcSbacDecoder)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibCommon/TComTU.cpp"
-            timestampString = "486931580.371949"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
-            landmarkName = "TComTURecurse::nextSection(const TComTU &amp;parent)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
-            timestampString = "486932062.200012"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "729"
-            endingLineNumber = "729"
-            landmarkName = "TDecCu::xIntraRecQT(TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ChannelType chType, TComTU &amp;rTu)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486937320.977212"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2245"
-            endingLineNumber = "2245"
-            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug))"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "486938667.648384"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1743"
-            endingLineNumber = "1743"
-            landmarkName = "TEncSearch::xSetIntraResultLumaQT(TComYuv* pcRecoYuv, TComTU &amp;rTu)"
+            startingLineNumber = "2253"
+            endingLineNumber = "2253"
+            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug), bool isNormalDequant)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1903,16 +374,112 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
+            timestampString = "488544183.724379"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2411"
+            endingLineNumber = "2411"
+            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug), bool isNormalDequant)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
+            timestampString = "488544183.724379"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2519"
+            endingLineNumber = "2519"
+            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug), bool isNormalDequant)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
+            timestampString = "488557952.751983"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "TDecCu::create( UInt uiMaxDepth, UInt uiMaxWidth, UInt uiMaxHeight, ChromaFormat chromaFormatIDC )"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
+            timestampString = "488557952.751983"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "TDecCu::init( TDecEntropy* pcEntropyDecoder, TComTrQuant* pcTrQuant, TComPrediction* pcPrediction)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibDecoder/TDecTop.cpp"
+            timestampString = "488403440.063144"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "TDecTop::init()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibDecoder/TDecEntropy.h"
+            timestampString = "488403722.336983"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "class TDecEntropy"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncCu.cpp"
-            timestampString = "487070798.572421"
+            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
+            timestampString = "488557952.751983"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "644"
-            endingLineNumber = "644"
-            landmarkName = "TEncCu::xCompressCU( TComDataCU*&amp; rpcBestCU, TComDataCU*&amp; rpcTempCU, const UInt uiDepth )"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "TDecCu::xDecodeCU( TComDataCU*const pcCU, const UInt uiAbsPartIdx, const UInt uiDepth, Bool &amp;isLastCtuOfSliceSegment)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1922,13 +489,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "487070879.360842"
+            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
+            timestampString = "488557952.751983"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2403"
-            endingLineNumber = "2403"
-            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug))"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "TDecCu::xDecodeSliceEnd( TComDataCU* pcCU, UInt uiAbsPartIdx )"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1938,13 +505,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "487253159.362803"
+            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
+            timestampString = "488557952.751983"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1719"
-            endingLineNumber = "1719"
-            landmarkName = "TEncSearch::xSetIntraResultLumaQT(TComYuv* pcRecoYuv, TComTU &amp;rTu)"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "TDecCu::xDecodeCU( TComDataCU*const pcCU, const UInt uiAbsPartIdx, const UInt uiDepth, Bool &amp;isLastCtuOfSliceSegment)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1954,13 +521,237 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
-            timestampString = "487253994.994923"
+            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
+            timestampString = "488557952.751983"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2511"
-            endingLineNumber = "2511"
-            landmarkName = "TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU, TComYuv* pcOrgYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, TComYuv* pcRecoYuv, Pel resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE] DEBUG_STRING_FN_DECLARE(sDebug))"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
+            landmarkName = "TDecCu::xDecodeCU( TComDataCU*const pcCU, const UInt uiAbsPartIdx, const UInt uiDepth, Bool &amp;isLastCtuOfSliceSegment)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
+            timestampString = "488557952.751983"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
+            landmarkName = "TDecCu::xDecodeCU( TComDataCU*const pcCU, const UInt uiAbsPartIdx, const UInt uiDepth, Bool &amp;isLastCtuOfSliceSegment)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
+            timestampString = "488557952.751983"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "TDecCu::xDecodeCU( TComDataCU*const pcCU, const UInt uiAbsPartIdx, const UInt uiDepth, Bool &amp;isLastCtuOfSliceSegment)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
+            timestampString = "488557952.751983"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
+            landmarkName = "TDecCu::xDecodeCU( TComDataCU*const pcCU, const UInt uiAbsPartIdx, const UInt uiDepth, Bool &amp;isLastCtuOfSliceSegment)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibEncoder/TEncSlice.cpp"
+            timestampString = "488564230.483538"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "838"
+            endingLineNumber = "838"
+            landmarkName = "TEncSlice::compressSlice( TComPic* pcPic, const Bool bCompressEntireSlice, const Bool bFastDeltaQP )"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibEncoder/TEncSlice.cpp"
+            timestampString = "488539736.535285"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "795"
+            endingLineNumber = "795"
+            landmarkName = "TEncSlice::compressSlice( TComPic* pcPic, const Bool bCompressEntireSlice, const Bool bFastDeltaQP )"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibEncoder/TEncSearch.cpp"
+            timestampString = "488544183.724379"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "4873"
+            endingLineNumber = "4873"
+            landmarkName = "TEncSearch::xEstimateInterResidualQT( TComYuv *pcResi, Double &amp;rdCost, UInt &amp;ruiBits, Distortion &amp;ruiDist, Distortion *puiZeroDist, TComTU &amp;rTu DEBUG_STRING_FN_DECLARE(sDebug) )"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
+            timestampString = "488556703.728099"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1138"
+            endingLineNumber = "1138"
+            landmarkName = "TComTrQuant::xQuant( TComTU &amp;rTu, TCoeff * pSrc, TCoeff * pDes, #if ADAPTIVE_QP_SELECTION TCoeff *pArlDes, #endif TCoeff &amp;uiAbsSum, const ComponentID compID, const QpParam &amp;cQP )"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
+            timestampString = "488559901.419746"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "678"
+            endingLineNumber = "678"
+            landmarkName = "TDecCu::xReconIntraQT( TComDataCU* pcCU, UInt uiDepth, bool isNormalDequant )"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
+            timestampString = "488559901.419746"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "686"
+            endingLineNumber = "686"
+            landmarkName = "TDecCu::xReconIntraQT( TComDataCU* pcCU, UInt uiDepth, bool isNormalDequant )"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
+            timestampString = "488557952.751983"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
+            landmarkName = "TDecCu::xDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx, UInt uiDepth , bool isNormalDequant)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
+            timestampString = "488559901.419746"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "727"
+            endingLineNumber = "727"
+            landmarkName = "TDecCu::xIntraRecQT(TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ChannelType chType, TComTU &amp;rTu, bool isNormalDequant)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
+            timestampString = "488569201.191837"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1417"
+            endingLineNumber = "1417"
+            landmarkName = "TComTrQuant::xDeQuant( TComTU &amp;rTu, TCoeff * pSrc, TCoeff * pDes, const ComponentID compID, const QpParam &amp;cQP, bool isNormalDequant)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
+            timestampString = "488559922.40152"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "736"
+            endingLineNumber = "736"
+            landmarkName = "TDecCu::xIntraRecQT(TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ChannelType chType, TComTU &amp;rTu, bool isNormalDequant)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source/Lib/TLibDecoder/TDecCu.cpp"
+            timestampString = "488560337.737253"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "730"
+            endingLineNumber = "730"
+            landmarkName = "TDecCu::xIntraRecQT(TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ChannelType chType, TComTU &amp;rTu, bool isNormalDequant)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

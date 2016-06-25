@@ -172,7 +172,8 @@ public:
                                   TComYuv*    pcResiYuv,
                                   TComYuv*    pcRecoYuv,
                                   Pel         resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE]
-                                  DEBUG_STRING_FN_DECLARE(sDebug));
+                                 DEBUG_STRING_FN_DECLARE(sDebug),
+                                 bool isNormalDequant);
 
   Void  estIntraPredChromaQT    ( TComDataCU* pcCU,
                                   TComYuv*    pcOrgYuv,
@@ -180,7 +181,8 @@ public:
                                   TComYuv*    pcResiYuv,
                                   TComYuv*    pcRecoYuv,
                                   Pel         resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE]
-                                  DEBUG_STRING_FN_DECLARE(sDebug));
+                                 DEBUG_STRING_FN_DECLARE(sDebug),
+                                 bool isNormalDequant );
 
   /// encoder estimation - inter prediction (non-skip)
   Void predInterSearch          ( TComDataCU* pcCU,
@@ -245,7 +247,8 @@ protected:
                                           Distortion&   ruiDist,
                                     const ComponentID   compID,
                                           TComTU        &rTu
-                                    DEBUG_STRING_FN_DECLARE(sTest)
+                                   DEBUG_STRING_FN_DECLARE(sTest),
+                                   bool isNormalDequant
                                          ,Int           default0Save1Load2 = 0
                                    );
 
@@ -259,7 +262,8 @@ protected:
 #endif
                                     Double&      dRDCost,
                                     TComTU      &rTu
-                                    DEBUG_STRING_FN_DECLARE(sDebug));
+                                   DEBUG_STRING_FN_DECLARE(sDebug),
+                                   bool isNormalDequant);
 
   Void  xSetIntraResultLumaQT     ( TComYuv*     pcRecoYuv,
                                     TComTU &rTu);
@@ -287,7 +291,8 @@ protected:
                                     Pel         resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE],
                                     Distortion& ruiDist,
                                     TComTU      &rTu
-                                    DEBUG_STRING_FN_DECLARE(sDebug));
+                                   DEBUG_STRING_FN_DECLARE(sDebug),
+                                   bool isNormalDequant );
 
   Void  xSetIntraResultChromaQT   ( TComYuv*    pcRecoYuv, TComTU &rTu);
 

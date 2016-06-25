@@ -39,6 +39,8 @@
 #include "TLibCommon/TComTU.h"
 #include "TLibCommon/TComPrediction.h"
 
+static long long int g_Count;
+
 //! \ingroup TLibDecoder
 //! \{
 
@@ -152,9 +154,9 @@ Void TDecCu::decodeCtu( TComDataCU* pCtu, Bool& isLastCtuOfSliceSegment )
  Decoding process for a CTU.
  \param    pCtu                      [in/out] pointer to CTU data structure
  */
-Void TDecCu::decompressCtu( TComDataCU* pCtu )
+Void TDecCu::decompressCtu( TComDataCU* pCtu, bool isNormalDequant )
 {
-  xDecompressCU( pCtu, 0,  0 );
+  xDecompressCU( pCtu, 0,  0, isNormalDequant );
 }
 
 // ====================================================================================================================
@@ -340,7 +342,7 @@ Void TDecCu::xFinishDecodeCU( TComDataCU* pcCU, UInt uiAbsPartIdx, UInt uiDepth,
   isLastCtuOfSliceSegment = xDecodeSliceEnd( pcCU, uiAbsPartIdx );
 }
 
-Void TDecCu::xDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth )
+Void TDecCu::xDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth , bool isNormalDequant)
 {
   TComPic* pcPic = pCtu->getPic();
   TComSlice * pcSlice = pCtu->getSlice();
@@ -369,26 +371,32 @@ Void TDecCu::xDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth )
 
       if( ( uiLPelX < sps.getPicWidthInLumaSamples() ) && ( uiTPelY < sps.getPicHeightInLumaSamples() ) )
       {
-        xDecompressCU(pCtu, uiIdx, uiNextDepth );
+        xDecompressCU(pCtu, uiIdx, uiNextDepth ,isNormalDequant );
       }
 
       uiIdx += uiQNumParts;
     }
     return;
   }
-
+    
+    
   // Residual reconstruction
   m_ppcYuvResi[uiDepth]->clear();
+    
+    
 
   m_ppcCU[uiDepth]->copySubCU( pCtu, uiAbsPartIdx );
 
   switch( m_ppcCU[uiDepth]->getPredictionMode(0) )
   {
-    case MODE_INTER:
-      xReconInter( m_ppcCU[uiDepth], uiDepth );
+    case MODE_INTER:        //меж
+          return;
+//      xReconInter( m_ppcCU[uiDepth], uiDepth );
       break;
-    case MODE_INTRA:
-      xReconIntraQT( m_ppcCU[uiDepth], uiDepth );
+    case MODE_INTRA:        //внутри
+//          return;
+      xReconIntraQT( m_ppcCU[uiDepth], uiDepth, isNormalDequant );
+          return;
       break;
     default:
       assert(0);
@@ -462,7 +470,8 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
                             TComYuv*    pcPredYuv,
                             TComYuv*    pcResiYuv,
                       const ComponentID compID,
-                            TComTU     &rTu)
+                            TComTU     &rTu,
+                            bool isNormalDequant )
 {
   if (!rTu.ProcessComponentSection(compID))
   {
@@ -484,6 +493,7 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
 
   if (uiWidth != uiHeight)
   {
+      return;
     //------------------------------------------------
 
     //split at current level if dividing into square sub-TUs
@@ -493,7 +503,7 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
     //recurse further
     do
     {
-      xIntraRecBlk(pcRecoYuv, pcPredYuv, pcResiYuv, compID, subTURecurse);
+      xIntraRecBlk(pcRecoYuv, pcPredYuv, pcResiYuv, compID, subTURecurse,isNormalDequant);
     } while (subTURecurse.nextSection(rTu));
 
     //------------------------------------------------
@@ -529,10 +539,10 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
   Pel*      piResi            = pcResiYuv->getAddr( compID, uiAbsPartIdx );
   TCoeff*   pcCoeff           = pcCU->getCoeff(compID) + rTu.getCoefficientOffset(compID);//( uiNumCoeffInc * uiAbsPartIdx );
 
-    if(compID == COMPONENT_Y)
-    {
-        pcCoeff[0] = INT_MAX;
-    }
+//    if(compID == COMPONENT_Y)
+//    {
+//        pcCoeff[0] = INT_MAX;
+//    }
     
   const QpParam cQP(*pcCU, compID);
 
@@ -545,7 +555,10 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
 
   if (pcCU->getCbf(uiAbsPartIdx, compID, rTu.GetTransformDepthRel()) != 0)
   {
-    m_pcTrQuant->invTransformNxN( rTu, compID, piResi, uiStride, pcCoeff, cQP DEBUG_STRING_PASS_INTO(psDebug) );
+    m_pcTrQuant->invTransformNxN( rTu, compID, piResi, uiStride, pcCoeff, cQP DEBUG_STRING_PASS_INTO(psDebug) ,isNormalDequant );
+      
+      if(!isNormalDequant)
+          return;
   }
   else
   {
@@ -659,13 +672,15 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
 
 
 Void
-TDecCu::xReconIntraQT( TComDataCU* pcCU, UInt uiDepth )
+TDecCu::xReconIntraQT( TComDataCU* pcCU, UInt uiDepth, bool isNormalDequant )
 {
+    
   if (pcCU->getIPCMFlag(0))
   {
     xReconPCM( pcCU, uiDepth );
     return;
   }
+    
   const UInt numChType = pcCU->getPic()->getChromaFormat()!=CHROMA_400 ? 2 : 1;
   for (UInt chType=CHANNEL_TYPE_LUMA; chType<numChType; chType++)
   {
@@ -676,9 +691,9 @@ TDecCu::xReconIntraQT( TComDataCU* pcCU, UInt uiDepth )
     TComTURecurse tuRecurseCU(pcCU, 0);
     TComTURecurse tuRecurseWithPU(tuRecurseCU, false, (uiInitTrDepth==0)?TComTU::DONT_SPLIT : TComTU::QUAD_SPLIT);
 
-    do
+      do
     {
-      xIntraRecQT( m_ppcYuvReco[uiDepth], m_ppcYuvReco[uiDepth], m_ppcYuvResi[uiDepth], chanType, tuRecurseWithPU );
+      xIntraRecQT( m_ppcYuvReco[uiDepth], m_ppcYuvReco[uiDepth], m_ppcYuvResi[uiDepth], chanType, tuRecurseWithPU,isNormalDequant  );
     } while (tuRecurseWithPU.nextSection(tuRecurseCU));
   }
 }
@@ -700,7 +715,8 @@ TDecCu::xIntraRecQT(TComYuv*    pcRecoYuv,
                     TComYuv*    pcPredYuv,
                     TComYuv*    pcResiYuv,
                     const ChannelType chType,
-                    TComTU     &rTu)
+                    TComTU     &rTu,
+                    bool isNormalDequant)
 {
   UInt uiTrDepth    = rTu.GetTransformDepthRel();
   TComDataCU *pcCU  = rTu.getCU();
@@ -710,23 +726,33 @@ TDecCu::xIntraRecQT(TComYuv*    pcRecoYuv,
   {
     if (isLuma(chType))
     {
-      xIntraRecBlk( pcRecoYuv, pcPredYuv, pcResiYuv, COMPONENT_Y,  rTu );
+        TCoeff*   pcCoeff           = pcCU->getCoeff(COMPONENT_Y) + rTu.getCoefficientOffset(COMPONENT_Y);
+//        pcCoeff[0] = 2000;
+//        g_Count++;
+        
+//        std::cout << "Bits count = " << g_Count << std::endl;
+//        return;
+        
+      xIntraRecBlk( pcRecoYuv, pcPredYuv, pcResiYuv, COMPONENT_Y,  rTu,isNormalDequant );
+        return;
     }
     else
     {
+          return;
       const UInt numValidComp=getNumberValidComponents(rTu.GetChromaFormat());
       for(UInt compID=COMPONENT_Cb; compID<numValidComp; compID++)
       {
-        xIntraRecBlk( pcRecoYuv, pcPredYuv, pcResiYuv, ComponentID(compID), rTu );
+        xIntraRecBlk( pcRecoYuv, pcPredYuv, pcResiYuv, ComponentID(compID), rTu ,isNormalDequant);
       }
     }
   }
   else
   {
+        return;
     TComTURecurse tuRecurseChild(rTu, false);
     do
     {
-      xIntraRecQT( pcRecoYuv, pcPredYuv, pcResiYuv, chType, tuRecurseChild );
+      xIntraRecQT( pcRecoYuv, pcPredYuv, pcResiYuv, chType, tuRecurseChild ,isNormalDequant);
     } while (tuRecurseChild.nextSection(rTu));
   }
 }

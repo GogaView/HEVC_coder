@@ -3,10 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "TEncCu::compressCtu(TComDataCU*):TEncCu.cpp">
+         contextName = "TComTrQuant::xQuant(TComTU&amp;, int*, int*, int*, int&amp;, ComponentID, QpParam const&amp;):TComTrQuant.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "(unsigned int)(&apos;/b&apos;)">
+               value = "pSrc[0]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -18,6 +18,41 @@
             </PersistentString>
             <PersistentString
                value = "uiQTLayer">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TComYuv::copyPartToPartComponent(ComponentID, TComYuv*, unsigned int, unsigned int, unsigned int) const:TComYuv.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "TEncSearch::estIntraPredLumaQT(TComDataCU*, TComYuv*, TComYuv*, TComYuv*, TComYuv*, short (*) [4096], std::string&amp;):TEncSearch.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "uiDepth">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TDecCu::xIntraRecQT(TComYuv*, TComYuv*, TComYuv*, ChannelType, TComTU&amp;, bool):TDecCu.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pcCoeff[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TComTrQuant::xDeQuant(TComTU&amp;, int*, int*, ComponentID, QpParam const&amp;, bool):TComTrQuant.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pSrc[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TEncCu::compressCtu(TComDataCU*):TEncCu.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(unsigned int)(&apos;/b&apos;)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

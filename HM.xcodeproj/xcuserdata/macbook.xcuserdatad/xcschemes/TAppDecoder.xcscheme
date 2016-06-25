@@ -67,7 +67,7 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "-b mobile.hevc -o mobile_out_new.yuv"
+            argument = "-b output.hevc -o mobile_out_new.yuv"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

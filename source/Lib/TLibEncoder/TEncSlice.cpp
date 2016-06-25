@@ -39,6 +39,10 @@
 #include "TEncSlice.h"
 #include <math.h>
 
+#include "TDecEntropy.h"
+#include "TComTrQuant.h"
+#include "TDecCu.h"
+
 //! \ingroup TLibEncoder
 //! \{
 
@@ -787,10 +791,45 @@ Void TEncSlice::compressSlice( TComPic* pcPic, const Bool bCompressEntireSlice, 
       pCtu->getSlice()->setSliceQpBase( estQP );
 #endif
     }
-
+      
+      bool isNormalDequant = true;
+      
     // run CTU trial encoder
-    m_pcCuEncoder->compressCtu( pCtu );
+    m_pcCuEncoder->compressCtu( pCtu ,isNormalDequant );
+      
+  {
+      
+       isNormalDequant = (false);
+      
+      TComPrediction predict;
+      predict.initTempBuff(m_picYuvPred.getChromaFormat());
+      
+      TDecEntropy decEntropy;
+      decEntropy.init(&predict);
+      
+      TComTrQuant TrQuant;
+      TrQuant.init(pcSlice->getSPS()->getMaxTrSize());
 
+      TDecCu decCu;
+      decCu.create ( pcSlice->getSPS()->getMaxTotalCUDepth(),
+                    pcSlice->getSPS()->getMaxCUWidth(),
+                    pcSlice->getSPS()->getMaxCUHeight(),
+                    pcSlice->getSPS()->getChromaFormatIdc() );
+      decCu.init(&decEntropy, &TrQuant, &predict);
+      decCu.decompressCtu(pCtu,isNormalDequant);
+      
+  }
+      
+      {
+//          TCoeff*   pcCoeff           = pCtu->getCoeff(COMPONENT_Y);
+//          
+//          TCoeff ind = pcCoeff[0];
+//          pcCoeff[0] = 1000;
+      }
+      
+      
+      
+      //       g_isNormalDequant = (true);
 
     // All CTU decisions have now been made. Restore entropy coder to an initial stage, ready to make a true encode,
     // which will result in the state of the contexts being correct. It will also count up the number of bits coded,

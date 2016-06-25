@@ -206,7 +206,7 @@ Void TDecSlice::decompressSlice(TComInputBitstream** ppcSubstreams, TComPic* pcP
     }
 
     m_pcCuDecoder->decodeCtu     ( pCtu, isLastCtuOfSliceSegment );
-    m_pcCuDecoder->decompressCtu ( pCtu );
+    m_pcCuDecoder->decompressCtu ( pCtu, true);
 
 #if ENC_DEC_TRACE
     g_bJustDoIt = g_bEncDecTraceDisable;

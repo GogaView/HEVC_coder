@@ -86,20 +86,20 @@ public:
   Void  decodeCtu               ( TComDataCU* pCtu, Bool &isLastCtuOfSliceSegment );
 
   /// reconstruct Ctu information
-  Void  decompressCtu           ( TComDataCU* pCtu );
+  Void  decompressCtu           ( TComDataCU* pCtu, bool isNormalDequant );
 
 protected:
 
   Void xDecodeCU                ( TComDataCU* const pcCU, const UInt uiAbsPartIdx, const UInt uiDepth, Bool &isLastCtuOfSliceSegment);
   Void xFinishDecodeCU          ( TComDataCU* pcCU, UInt uiAbsPartIdx, UInt uiDepth, Bool &isLastCtuOfSliceSegment);
   Bool xDecodeSliceEnd          ( TComDataCU* pcCU, UInt uiAbsPartIdx );
-  Void xDecompressCU            ( TComDataCU* pCtu, UInt uiAbsPartIdx, UInt uiDepth );
+  Void xDecompressCU            ( TComDataCU* pCtu, UInt uiAbsPartIdx, UInt uiDepth, bool isNormalDequant );
 
   Void xReconInter              ( TComDataCU* pcCU, UInt uiDepth );
 
-  Void xReconIntraQT            ( TComDataCU* pcCU, UInt uiDepth );
-  Void xIntraRecBlk             ( TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ComponentID component, TComTU &rTu );
-  Void xIntraRecQT              ( TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ChannelType chType, TComTU &rTu );
+  Void xReconIntraQT            ( TComDataCU* pcCU, UInt uiDepth, bool isNormalDequant );
+    Void xIntraRecBlk             ( TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ComponentID component, TComTU &rTu, bool isNormalDequant  );
+    Void xIntraRecQT              ( TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ChannelType chType, TComTU &rTu,bool isNormalDequant  );
 
   Void xReconPCM                ( TComDataCU* pcCU, UInt uiDepth );
 

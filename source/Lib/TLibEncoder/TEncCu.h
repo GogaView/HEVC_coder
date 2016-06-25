@@ -109,7 +109,7 @@ public:
   Void  destroy             ();
 
   /// CTU analysis function
-  Void  compressCtu         ( TComDataCU*  pCtu );
+  Void  compressCtu         ( TComDataCU*  pCtu, bool isNormalDequant );
 
   /// CTU encoding function
   Void  encodeCtu           ( TComDataCU*  pCtu );
@@ -121,9 +121,11 @@ public:
 protected:
   Void  finishCU            ( TComDataCU*  pcCU, UInt uiAbsPartIdx );
 #if AMP_ENC_SPEEDUP
-  Void  xCompressCU         ( TComDataCU*& rpcBestCU, TComDataCU*& rpcTempCU, const UInt uiDepth DEBUG_STRING_FN_DECLARE(sDebug), PartSize eParentPartSize = NUMBER_OF_PART_SIZES );
+    Void  xCompressCU         ( TComDataCU*& rpcBestCU, TComDataCU*& rpcTempCU, const UInt uiDepth DEBUG_STRING_FN_DECLARE(sDebug),
+                               bool isNormalDequant , PartSize eParentPartSize = NUMBER_OF_PART_SIZES );
 #else
-  Void  xCompressCU         ( TComDataCU*& rpcBestCU, TComDataCU*& rpcTempCU, const UInt uiDepth        );
+    Void  xCompressCU         ( TComDataCU*& rpcBestCU, TComDataCU*& rpcTempCU,,
+                               bool isNormalDequant, const UInt uiDepth        );
 #endif
   Void  xEncodeCU           ( TComDataCU*  pcCU, UInt uiAbsPartIdx,           UInt uiDepth        );
 
@@ -133,7 +135,8 @@ protected:
   Void  xCheckRDCostMerge2Nx2N( TComDataCU*& rpcBestCU, TComDataCU*& rpcTempCU DEBUG_STRING_FN_DECLARE(sDebug), Bool *earlyDetectionSkipMode );
 
 #if AMP_MRG
-  Void  xCheckRDCostInter   ( TComDataCU*& rpcBestCU, TComDataCU*& rpcTempCU, PartSize ePartSize DEBUG_STRING_FN_DECLARE(sDebug), Bool bUseMRG = false  );
+    Void  xCheckRDCostInter   ( TComDataCU*& rpcBestCU, TComDataCU*& rpcTempCU, PartSize ePartSize DEBUG_STRING_FN_DECLARE(sDebug),
+                               bool isNormalDequant , Bool bUseMRG = false  );
 #else
   Void  xCheckRDCostInter   ( TComDataCU*& rpcBestCU, TComDataCU*& rpcTempCU, PartSize ePartSize  );
 #endif
@@ -141,7 +144,8 @@ protected:
   Void  xCheckRDCostIntra   ( TComDataCU *&rpcBestCU,
                               TComDataCU *&rpcTempCU,
                               PartSize     ePartSize
-                              DEBUG_STRING_FN_DECLARE(sDebug)
+                             DEBUG_STRING_FN_DECLARE(sDebug),
+                             bool isNormalDequant
                             );
 
   Void  xCheckDQP           ( TComDataCU*  pcCU );

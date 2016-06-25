@@ -1109,7 +1109,8 @@ Void TEncSearch::xIntraCodingTUBlock(       TComYuv*    pcOrgYuv,
                                             Distortion& ruiDist,
                                       const ComponentID compID,
                                             TComTU&     rTu
-                                      DEBUG_STRING_FN_DECLARE(sDebug)
+                                     DEBUG_STRING_FN_DECLARE(sDebug),
+                                     bool isNormalDequant
                                            ,Int         default0Save1Load2
                                      )
 {
@@ -1287,7 +1288,10 @@ Void TEncSearch::xIntraCodingTUBlock(       TComYuv*    pcOrgYuv,
   if ( uiAbsSum > 0 )
 #endif
   {
-    m_pcTrQuant->invTransformNxN ( rTu, compID, piResi, uiStride, pcCoeff, cQP DEBUG_STRING_PASS_INTO_OPTIONAL(&sDebug, (DebugOptionList::DebugString_InvTran.getInt()&debugPredModeMask)) );
+      m_pcTrQuant->invTransformNxN ( rTu, compID, piResi, uiStride, pcCoeff, cQP DEBUG_STRING_PASS_INTO_OPTIONAL(&sDebug, (DebugOptionList::DebugString_InvTran.getInt()&debugPredModeMask)), isNormalDequant );
+      
+      if(!isNormalDequant )
+          return;
   }
   else
   {
@@ -1411,7 +1415,8 @@ TEncSearch::xRecurIntraCodingLumaQT(TComYuv*    pcOrgYuv,
 #endif
                                     Double&     dRDCost,
                                     TComTU&     rTu
-                                    DEBUG_STRING_FN_DECLARE(sDebug))
+                                    DEBUG_STRING_FN_DECLARE(sDebug),
+                                    bool isNormalDequant)
 {
   TComDataCU   *pcCU          = rTu.getCU();
   const UInt    uiAbsPartIdx  = rTu.GetAbsPartIdxTU();
@@ -1575,8 +1580,9 @@ TEncSearch::xRecurIntraCodingLumaQT(TComYuv*    pcOrgYuv,
       dSingleCost   = 0.0;
 
       pcCU ->setTransformSkipSubParts ( 0, COMPONENT_Y, uiAbsPartIdx, totalAdjustedDepthChan );
-      xIntraCodingTUBlock( pcOrgYuv, pcPredYuv, pcResiYuv, resiLumaSingle, false, uiSingleDistLuma, COMPONENT_Y, rTu DEBUG_STRING_PASS_INTO(sDebug));
+        xIntraCodingTUBlock( pcOrgYuv, pcPredYuv, pcResiYuv, resiLumaSingle, false, uiSingleDistLuma, COMPONENT_Y, rTu DEBUG_STRING_PASS_INTO(sDebug),isNormalDequant);
 
+        
       if( bCheckSplit )
       {
         uiSingleCbfLuma = pcCU->getCbf( uiAbsPartIdx, COMPONENT_Y, uiTrDepth );
@@ -1629,7 +1635,7 @@ TEncSearch::xRecurIntraCodingLumaQT(TComYuv*    pcOrgYuv,
     {
       DEBUG_STRING_NEW(sChild)
 #if HHI_RQT_INTRA_SPEEDUP
-      xRecurIntraCodingLumaQT( pcOrgYuv, pcPredYuv, pcResiYuv, resiLumaSplit, uiSplitDistLuma, bCheckFirst, dSplitCost, tuRecurseChild DEBUG_STRING_PASS_INTO(sChild) );
+        xRecurIntraCodingLumaQT( pcOrgYuv, pcPredYuv, pcResiYuv, resiLumaSplit, uiSplitDistLuma, bCheckFirst, dSplitCost, tuRecurseChild DEBUG_STRING_PASS_INTO(sChild), isNormalDequant );
 #else
       xRecurIntraCodingLumaQT( pcOrgYuv, pcPredYuv, pcResiYuv, resiLumaSplit, uiSplitDistLuma, dSplitCost, tuRecurseChild DEBUG_STRING_PASS_INTO(sChild) );
 #endif
@@ -1933,7 +1939,8 @@ TEncSearch::xRecurIntraChromaCodingQT(TComYuv*    pcOrgYuv,
                                       Pel         resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE],
                                       Distortion& ruiDist,
                                       TComTU&     rTu
-                                      DEBUG_STRING_FN_DECLARE(sDebug))
+                                      DEBUG_STRING_FN_DECLARE(sDebug),
+                                      bool isNormalDequant )
 {
   TComDataCU         *pcCU                  = rTu.getCU();
   const UInt          uiTrDepth             = rTu.GetTransformDepthRel();
@@ -2036,7 +2043,7 @@ TEncSearch::xRecurIntraChromaCodingQT(TComYuv*    pcOrgYuv,
 
             singleDistCTmp = 0;
 
-            xIntraCodingTUBlock( pcOrgYuv, pcPredYuv, pcResiYuv, resiLuma, (crossCPredictionModeId != 0), singleDistCTmp, compID, TUIterator DEBUG_STRING_PASS_INTO(sDebugMode), default0Save1Load2);
+            xIntraCodingTUBlock( pcOrgYuv, pcPredYuv, pcResiYuv, resiLuma, (crossCPredictionModeId != 0), singleDistCTmp, compID, TUIterator DEBUG_STRING_PASS_INTO(sDebugMode),isNormalDequant ,default0Save1Load2);
             singleCbfCTmp = pcCU->getCbf( subTUAbsPartIdx, compID, uiTrDepth);
 
             if (  ((crossCPredictionModeId == 1) && (pcCU->getCrossComponentPredictionAlpha(subTUAbsPartIdx, compID) == 0))
@@ -2104,7 +2111,7 @@ TEncSearch::xRecurIntraChromaCodingQT(TComYuv*    pcOrgYuv,
     {
       DEBUG_STRING_NEW(sChild)
 
-      xRecurIntraChromaCodingQT( pcOrgYuv, pcPredYuv, pcResiYuv, resiLuma, ruiDist, tuRecurseChild DEBUG_STRING_PASS_INTO(sChild) );
+        xRecurIntraChromaCodingQT( pcOrgYuv, pcPredYuv, pcResiYuv, resiLuma, ruiDist, tuRecurseChild DEBUG_STRING_PASS_INTO(sChild) ,isNormalDequant );
 
       DEBUG_STRING_APPEND(sDebug, sChild)
       const UInt uiAbsPartIdxSub=tuRecurseChild.GetAbsPartIdxTU();
@@ -2196,7 +2203,8 @@ TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU,
                                TComYuv*    pcResiYuv,
                                TComYuv*    pcRecoYuv,
                                Pel         resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE]
-                               DEBUG_STRING_FN_DECLARE(sDebug))
+                               DEBUG_STRING_FN_DECLARE(sDebug),
+                               bool isNormalDequant)
 {
   const UInt         uiDepth               = pcCU->getDepth(0);
   const UInt         uiInitTrDepth         = pcCU->getPartitionSize(0) == SIZE_2Nx2N ? 0 : 1;
@@ -2377,7 +2385,7 @@ TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU,
       Distortion uiPUDistY = 0;
       Double     dPUCost   = 0.0;
 #if HHI_RQT_INTRA_SPEEDUP
-      xRecurIntraCodingLumaQT( pcOrgYuv, pcPredYuv, pcResiYuv, resiLumaPU, uiPUDistY, true, dPUCost, tuRecurseWithPU DEBUG_STRING_PASS_INTO(sMode) );
+        xRecurIntraCodingLumaQT( pcOrgYuv, pcPredYuv, pcResiYuv, resiLumaPU, uiPUDistY, true, dPUCost, tuRecurseWithPU DEBUG_STRING_PASS_INTO(sMode) ,isNormalDequant);
 #else
       xRecurIntraCodingLumaQT( pcOrgYuv, pcPredYuv, pcResiYuv, resiLumaPU, uiPUDistY, dPUCost, tuRecurseWithPU DEBUG_STRING_PASS_INTO(sMode) );
 #endif
@@ -2469,7 +2477,7 @@ TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU,
       Distortion uiPUDistY = 0;
       Double     dPUCost   = 0.0;
 
-      xRecurIntraCodingLumaQT( pcOrgYuv, pcPredYuv, pcResiYuv, resiLumaPU, uiPUDistY, false, dPUCost, tuRecurseWithPU DEBUG_STRING_PASS_INTO(sModeTree));
+      xRecurIntraCodingLumaQT( pcOrgYuv, pcPredYuv, pcResiYuv, resiLumaPU, uiPUDistY, false, dPUCost, tuRecurseWithPU DEBUG_STRING_PASS_INTO(sModeTree),isNormalDequant);
 
       // check r-d cost
       if( dPUCost < dBestPUCost )
@@ -2589,7 +2597,8 @@ TEncSearch::estIntraPredChromaQT(TComDataCU* pcCU,
                                  TComYuv*    pcResiYuv,
                                  TComYuv*    pcRecoYuv,
                                  Pel         resiLuma[NUMBER_OF_STORED_RESIDUAL_TYPES][MAX_CU_SIZE * MAX_CU_SIZE]
-                                 DEBUG_STRING_FN_DECLARE(sDebug))
+                                 DEBUG_STRING_FN_DECLARE(sDebug),
+                                 bool isNormalDequant )
 {
   const UInt    uiInitTrDepth  = pcCU->getPartitionSize(0) != SIZE_2Nx2N && enable4ChromaPUsInIntraNxNCU(pcOrgYuv->getChromaFormat()) ? 1 : 0;
 
@@ -2641,7 +2650,7 @@ TEncSearch::estIntraPredChromaQT(TComDataCU* pcCU,
           //----- chroma coding -----
           Distortion uiDist = 0;
           pcCU->setIntraDirSubParts  ( CHANNEL_TYPE_CHROMA, uiModeList[uiMode], uiPartOffset, uiDepthCU+uiInitTrDepth );
-          xRecurIntraChromaCodingQT       ( pcOrgYuv, pcPredYuv, pcResiYuv, resiLuma, uiDist, tuRecurseWithPU DEBUG_STRING_PASS_INTO(sMode) );
+            xRecurIntraChromaCodingQT       ( pcOrgYuv, pcPredYuv, pcResiYuv, resiLuma, uiDist, tuRecurseWithPU DEBUG_STRING_PASS_INTO(sMode), isNormalDequant  );
 
           if( pcCU->getSlice()->getPPS()->getUseTransformSkip() )
           {
@@ -4861,7 +4870,7 @@ Void TEncSearch::xEstimateInterResidualQT( TComYuv    *pcResi,
 
                 pcResiCurrComp = m_pcQTTempTComYuv[uiQTTempAccessLayer].getAddrPix( compID, tuCompRect.x0, tuCompRect.y0 );
 
-                m_pcTrQuant->invTransformNxN( TUIterator, compID, pcResiCurrComp, m_pcQTTempTComYuv[uiQTTempAccessLayer].getStride(compID), currentCoefficients, cQP DEBUG_STRING_PASS_INTO_OPTIONAL(&sSingleStringTest, (DebugOptionList::DebugString_InvTran.getInt()&debugPredModeMask)) );
+                  m_pcTrQuant->invTransformNxN( TUIterator, compID, pcResiCurrComp, m_pcQTTempTComYuv[uiQTTempAccessLayer].getStride(compID), currentCoefficients, cQP DEBUG_STRING_PASS_INTO_OPTIONAL(&sSingleStringTest, (DebugOptionList::DebugString_InvTran.getInt()&debugPredModeMask)), true );
 
                 if (bUseCrossCPrediction)
                 {

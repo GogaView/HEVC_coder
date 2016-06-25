@@ -48,6 +48,7 @@ static long long int TrolololQuantCnt;
 
 
 static long long int TrolololDeQuantCnt;
+static long long int TrolololDeQuantCnt2;
 
 //! \ingroup TLibCommon
 //! \{
@@ -140,7 +141,8 @@ public:
                        const UInt           uiStride,
                              TCoeff      *  pcCoeff,
                        const QpParam      & cQP
-                             DEBUG_STRING_FN_DECLAREP(psDebug));
+                       DEBUG_STRING_FN_DECLAREP(psDebug),
+                       bool isNormalDequant);
 
   Void invRecurTransformNxN ( const ComponentID compID, TComYuv *pResidual, TComTU &rTu );
 
@@ -315,11 +317,19 @@ __inline UInt              xGetCodedLevel  ( Double&          rd64CodedCost,
 
   // dequantization
   Void xDeQuant(       TComTU       &rTu,
-                 const TCoeff      * pSrc,
+                       TCoeff      * pSrc,
                        TCoeff      * pDes,
                  const ComponentID   compID,
-                 const QpParam      &cQP );
+                const QpParam      &cQP,
+                bool isNormalDequant );
 
+  Void xDeQuant2(       TComTU       &rTu,
+                  TCoeff      * pSrc,
+                  TCoeff      * pDes,
+                  const ComponentID   compID,
+                  const QpParam      &cQP );
+    
+    
   // inverse transform
   Void xIT    ( const Int channelBitDepth, Bool useDST, TCoeff* plCoef, Pel* pResidual, UInt uiStride, Int iWidth, Int iHeight, const Int maxLog2TrDynamicRange );
 

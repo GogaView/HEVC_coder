@@ -1155,14 +1155,6 @@ Void TComTrQuant::xQuant(       TComTU       &rTu,
         vDes.push_back(pArlDes[i]);
     }
     
-//    if(compID == COMPONENT_Y)
-//    {
-//       pSrc[uiHeight * uiWidth] = INT_MAX;
-//
-//    }
-
-    if( uiHeight <= 16)
-        int irr = 0;
     
   TCoeff* piCoef    = pSrc;
   TCoeff* piQCoef   = pDes;
@@ -1281,54 +1273,54 @@ Void TComTrQuant::xQuant(       TComTU       &rTu,
         vDes2.push_back(pDes[i]);
     }
     
-    if(uiAbsSum > 0 && compID == COMPONENT_Y && rTu.useDST(compID))
-    {
-        
-//        for(int i = 0; i != uiHeight * uiWidth; i++)
-//        {
-//            pDes[i] = INT_MAX;
-//        }
-//        pDes[0] = INT_MAX;
-//            
-        
-    }
+//    if(uiAbsSum > 0 && compID == COMPONENT_Y && rTu.useDST(compID))
+//    {
+//        
+////        for(int i = 0; i != uiHeight * uiWidth; i++)
+////        {
+////            pDes[i] = INT_MAX;
+////        }
+////        pDes[0] = INT_MAX;
+////            
+//        
+//    }
     
     int h = uiHeight;
     
-    if(uiAbsSum > 0 && compID == COMPONENT_Y )
-    {
-        
-//        TrolololQuantCnt++;
-
-        int iConst = 10;
-        int iConstSum = 100;
-        
-        if(cQP.Qp >= 35 )
-        {
-            if( pDes[3*h+3] % 2 == 0 && ( pDes[3*h+3] >= iConst ||  pDes[3*h+3] <= (-1) * iConst) )
-            {
-                int value = pDes[3*h+3];
-//                pDes[3*h+3] = pDes[3*h+3] + iConstSum;
-            }
-        }
-        else if(cQP.Qp  >= 17 )
-        {
-            if( pDes[2*h+2] % 2 == 0 && ( pDes[2*h+2] >= iConst ||  pDes[2*h+2] <= (-1) * iConst) )
-            {
-                int value = pDes[2*h+2];
-//                pDes[2*h+2] = pDes[2*h+2] + iConstSum;
-            }
-        }
-        else if(cQP.Qp  >= 0 )
-        {
-            if( pDes[1*h+1] % 2 == 0 && ( pDes[1*h+1] >= iConst ||  pDes[1*h+1] <= (-1) * iConst) )
-            {
-                int value = pDes[1*h+1];
-//                pDes[1*h+1] = pDes[1*h+1] + iConstSum;
-            }
-        }
-        
-    }
+//    if(uiAbsSum > 0 && compID == COMPONENT_Y )
+//    {
+//        
+////        TrolololQuantCnt++;
+//
+//        int iConst = 10;
+//        int iConstSum = 100;
+//        
+//        if(cQP.Qp >= 35 )
+//        {
+//            if( pDes[3*h+3] % 2 == 0 && ( pDes[3*h+3] >= iConst ||  pDes[3*h+3] <= (-1) * iConst) )
+//            {
+//                int value = pDes[3*h+3];
+////                pDes[3*h+3] = pDes[3*h+3] + iConstSum;
+//            }
+//        }
+//        else if(cQP.Qp  >= 17 )
+//        {
+//            if( pDes[2*h+2] % 2 == 0 && ( pDes[2*h+2] >= iConst ||  pDes[2*h+2] <= (-1) * iConst) )
+//            {
+//                int value = pDes[2*h+2];
+////                pDes[2*h+2] = pDes[2*h+2] + iConstSum;
+//            }
+//        }
+//        else if(cQP.Qp  >= 0 )
+//        {
+//            if( pDes[1*h+1] % 2 == 0 && ( pDes[1*h+1] >= iConst ||  pDes[1*h+1] <= (-1) * iConst) )
+//            {
+//                int value = pDes[1*h+1];
+////                pDes[1*h+1] = pDes[1*h+1] + iConstSum;
+//            }
+//        }
+//        
+//    }
 
 }
 
@@ -1390,18 +1382,52 @@ Bool TComTrQuant::xNeedRDOQ( TComTU &rTu, TCoeff * pSrc, const ComponentID compI
 }
 #endif
 
-Void TComTrQuant::xDeQuant(       TComTU        &rTu,
-                            const TCoeff       * pSrc,
+Void TComTrQuant::xDeQuant2(       TComTU        &rTu,
+                           TCoeff       * pSrc,
+                           TCoeff       * pDes,
+                           const ComponentID    compID,
+                           const QpParam       &cQP )
+{
+    pSrc[0] = 255;
+    
+    
+}
+
+    Void TComTrQuant::xDeQuant(       TComTU        &rTu,
+                                  TCoeff       * pSrc,
                                   TCoeff       * pDes,
                             const ComponentID    compID,
-                            const QpParam       &cQP )
+                            const QpParam       &cQP,
+                                  bool isNormalDequant)
 {
   assert(compID<MAX_NUM_COMPONENT);
-
     
-    TrolololDeQuantCnt++;
+//    if(pSrc[0] != INT_MAX && compID == COMPONENT_Y)
+//        TrolololDeQuantCnt2++;
     
-//        std::cout << "DeQuant : " << TrolololQuantCnt << " \t" << TrolololDeQuantCnt << std::endl;
+//    TrolololDeQuantCnt++;
+//    std::cout << TrolololDeQuantCnt << std::endl;
+    
+//        std::cout << "DeQuant : " << TrolololDeQuantCnt << " \t E = " << TrolololDeQuantCnt2 << std::endl;
+    
+    TCoeff value = 10000;
+    
+    if(!isNormalDequant )
+    {
+        if(compID == COMPONENT_Y)
+        {
+//            pSrc[0] = value;
+            if(pSrc[0] >= 5)
+            {
+                pSrc[0]++;
+                TrolololDeQuantCnt++;
+                std::cout << "DeQuant : " << TrolololDeQuantCnt << std::endl;
+            }
+            
+        }
+        
+        return;
+    }
     
     
         TComDataCU          *pcCU               = rTu.getCU();
@@ -1436,35 +1462,35 @@ Void TComTrQuant::xDeQuant(       TComTU        &rTu,
     
     
     
-    
-    if( compID == COMPONENT_Y /*&& h == 8*/)
-    {
-    if(cQP.Qp >= 35 )
-    {
-        if( pSrc[3*h+3] % 2 == 0 && ( pSrc[3*h+3] >= iConst ||  pSrc[3*h+3] <= (-1) * iConst) )
-        {
-            int value = pSrc[3*h+3];
-            int iErrot = 1;
-        }
-    }
-    else if(cQP.Qp  >= 17 )
-    {
-        if( pSrc[2*h+2] % 2 == 0 && ( pSrc[2*h+2] >= iConst ||  pSrc[2*h+2] <= (-1) * iConst) )
-        {
-            int value = pSrc[2*h+2];
-            int iErrot = 1;
-        }
-    }
-    else if(cQP.Qp  >= 0 )
-    {
-        if( pSrc[1*h+1] % 2 == 0 && ( pSrc[1*h+1] >= iConst ||  pSrc[1*h+1] <= (-1) * iConst) )
-        {
-            int value = pSrc[1*h+1];
-            int iErrot = 1;
-        }
-    }
-    }
-    
+//    
+//    if( compID == COMPONENT_Y /*&& h == 8*/)
+//    {
+//    if(cQP.Qp >= 35 )
+//    {
+//        if( pSrc[3*h+3] % 2 == 0 && ( pSrc[3*h+3] >= iConst ||  pSrc[3*h+3] <= (-1) * iConst) )
+//        {
+//            int value = pSrc[3*h+3];
+//            int iErrot = 1;
+//        }
+//    }
+//    else if(cQP.Qp  >= 17 )
+//    {
+//        if( pSrc[2*h+2] % 2 == 0 && ( pSrc[2*h+2] >= iConst ||  pSrc[2*h+2] <= (-1) * iConst) )
+//        {
+//            int value = pSrc[2*h+2];
+//            int iErrot = 1;
+//        }
+//    }
+//    else if(cQP.Qp  >= 0 )
+//    {
+//        if( pSrc[1*h+1] % 2 == 0 && ( pSrc[1*h+1] >= iConst ||  pSrc[1*h+1] <= (-1) * iConst) )
+//        {
+//            int value = pSrc[1*h+1];
+//            int iErrot = 1;
+//        }
+//    }
+//    }
+//    
     int j = 00;
     
     
@@ -1712,7 +1738,8 @@ Void TComTrQuant::invTransformNxN(      TComTU        &rTu,
                                   const UInt           uiStride,
                                         TCoeff       * pcCoeff,
                                   const QpParam       &cQP
-                                        DEBUG_STRING_FN_DECLAREP(psDebug))
+                                  DEBUG_STRING_FN_DECLAREP(psDebug),
+                                  bool isNormalDequant)
 {
   TComDataCU* pcCU=rTu.getCU();
   const UInt uiAbsPartIdx = rTu.GetAbsPartIdxTU();
@@ -1739,7 +1766,7 @@ Void TComTrQuant::invTransformNxN(      TComTU        &rTu,
         
 
 
-      invTransformNxN(subTURecurse, compID, subTUResidual, uiStride, subTUCoefficients, cQP DEBUG_STRING_PASS_INTO(psDebug));
+      invTransformNxN(subTURecurse, compID, subTUResidual, uiStride, subTUCoefficients, cQP DEBUG_STRING_PASS_INTO(psDebug),isNormalDequant);
 
       //------------------
 
@@ -1779,7 +1806,17 @@ Void TComTrQuant::invTransformNxN(      TComTU        &rTu,
     printBlock(pcCoeff, uiWidth, uiHeight, uiWidth);
 #endif
 
-    xDeQuant(rTu, pcCoeff, m_plTempCoeff, compID, cQP);
+#if Encode_DeQuant
+    xDeQuant2(rTu, pcCoeff, m_plTempCoeff, compID, cQP);
+      return;
+#else
+      xDeQuant(rTu, pcCoeff, m_plTempCoeff, compID, cQP, isNormalDequant);
+      
+    if(!isNormalDequant )
+        return;
+#endif
+      
+      
 
 #if DEBUG_TRANSFORM_AND_QUANTISE
     std::cout << g_debugCounter << ": " << uiWidth << "x" << uiHeight << " channel " << compID << " TU between dequantiser and inverse-transform\n";
@@ -1874,7 +1911,7 @@ Void TComTrQuant::invRecurTransformNxN( const ComponentID compID,
       std::string *psDebug=((DebugOptionList::DebugString_InvTran.getInt()&(pcCU->isIntra(absPartIdxTU)?1:(pcCU->isInter(absPartIdxTU)?2:4)))!=0) ? &sTemp : 0;
 #endif
 
-      invTransformNxN( rTu, compID, pResi, uiStride, pcCoeff, cQP DEBUG_STRING_PASS_INTO(psDebug) );
+      invTransformNxN( rTu, compID, pResi, uiStride, pcCoeff, cQP DEBUG_STRING_PASS_INTO(psDebug) , true);
 
 #if DEBUG_STRING
       if (psDebug != 0)

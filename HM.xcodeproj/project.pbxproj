@@ -155,6 +155,9 @@
 		DBC9C9521447855200A77A93 /* WeightPredAnalysis.h in Headers */ = {isa = PBXBuildFile; fileRef = DBC9C9501447855200A77A93 /* WeightPredAnalysis.h */; };
 		DBDDB3AB13E26B4400A70251 /* TComInterpolationFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBDDB3A913E26B4400A70251 /* TComInterpolationFilter.cpp */; };
 		DBDDB3AC13E26B4400A70251 /* TComInterpolationFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = DBDDB3AA13E26B4400A70251 /* TComInterpolationFilter.h */; };
+		FAE3363C1D1999C5009609A0 /* DecoderInEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAE3363A1D1999C5009609A0 /* DecoderInEncoder.cpp */; };
+		FAE3363D1D1999C5009609A0 /* DecoderInEncoder.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FAE3363B1D1999C5009609A0 /* DecoderInEncoder.hpp */; };
+		FAE336401D1C7BB3009609A0 /* libTLibDecoder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 676795F411AD621A00421804 /* libTLibDecoder.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +216,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 7104E1CC12005ABA00F42AA8;
 			remoteInfo = TAppCommon;
+		};
+		FAE3363E1D1C7B3E009609A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 676795F311AD621A00421804;
+			remoteInfo = TLibDecoder;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -368,6 +378,8 @@
 		DBC9C9501447855200A77A93 /* WeightPredAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeightPredAnalysis.h; path = source/Lib/TLibEncoder/WeightPredAnalysis.h; sourceTree = "<group>"; };
 		DBDDB3A913E26B4400A70251 /* TComInterpolationFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TComInterpolationFilter.cpp; path = source/Lib/TLibCommon/TComInterpolationFilter.cpp; sourceTree = "<group>"; };
 		DBDDB3AA13E26B4400A70251 /* TComInterpolationFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TComInterpolationFilter.h; path = source/Lib/TLibCommon/TComInterpolationFilter.h; sourceTree = "<group>"; };
+		FAE3363A1D1999C5009609A0 /* DecoderInEncoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DecoderInEncoder.cpp; path = source/Test/DecoderInEncoder.cpp; sourceTree = "<group>"; };
+		FAE3363B1D1999C5009609A0 /* DecoderInEncoder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = DecoderInEncoder.hpp; path = source/Test/DecoderInEncoder.hpp; sourceTree = "<group>"; };
 		FAFE02961C9EE907006F0EA8 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Test.h; path = source/Test.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -404,6 +416,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE336401D1C7BB3009609A0 /* libTLibDecoder.a in Frameworks */,
 				71AD603911EBC28500F5F1FE /* libTLibCommon.a in Frameworks */,
 				71AD603A11EBC28D00F5F1FE /* libTLibEncoder.a in Frameworks */,
 				71AD603B11EBC29600F5F1FE /* libTLibVideoIO.a in Frameworks */,
@@ -452,6 +465,8 @@
 				676795EF11AD620B00421804 /* TLibDecoder */,
 				6767961411AD624B00421804 /* TLibEncoder */,
 				6767964E11AD629700421804 /* TLibVideoIO */,
+				FAE3363A1D1999C5009609A0 /* DecoderInEncoder.cpp */,
+				FAE3363B1D1999C5009609A0 /* DecoderInEncoder.hpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -713,6 +728,7 @@
 				DBC9C94C1447847400A77A93 /* TComRdCostWeightPrediction.h in Headers */,
 				DBC9C94E1447847400A77A93 /* TComWeightPrediction.h in Headers */,
 				61601BB715A74998008F8892 /* Debug.h in Headers */,
+				FAE3363D1D1999C5009609A0 /* DecoderInEncoder.hpp in Headers */,
 				61601BB915A74998008F8892 /* TComChromaFormat.h in Headers */,
 				61601BBA15A74998008F8892 /* TComRectangle.h in Headers */,
 				61601BBC15A74998008F8892 /* TComTU.h in Headers */,
@@ -864,6 +880,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FAE3363F1D1C7B3E009609A0 /* PBXTargetDependency */,
 				6745C43211AD7747007D801A /* PBXTargetDependency */,
 				6745C43411AD774C007D801A /* PBXTargetDependency */,
 				6745C43611AD774F007D801A /* PBXTargetDependency */,
@@ -954,6 +971,7 @@
 				676795D011AD61FC00421804 /* TComDataCU.cpp in Sources */,
 				676795D311AD61FC00421804 /* TComLoopFilter.cpp in Sources */,
 				676795D511AD61FC00421804 /* TComMotionInfo.cpp in Sources */,
+				FAE3363C1D1999C5009609A0 /* DecoderInEncoder.cpp in Sources */,
 				676795D811AD61FC00421804 /* TComPattern.cpp in Sources */,
 				676795DA11AD61FC00421804 /* TComPic.cpp in Sources */,
 				676795DC11AD61FC00421804 /* TComPicSym.cpp in Sources */,
@@ -1103,6 +1121,11 @@
 			isa = PBXTargetDependency;
 			target = 7104E1CC12005ABA00F42AA8 /* TAppCommon */;
 			targetProxy = 710DD69A133529A100BE8EDE /* PBXContainerItemProxy */;
+		};
+		FAE3363F1D1C7B3E009609A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 676795F311AD621A00421804 /* TLibDecoder */;
+			targetProxy = FAE3363E1D1C7B3E009609A0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

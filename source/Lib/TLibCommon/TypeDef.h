@@ -44,6 +44,30 @@
 
 #include <vector>
 
+
+//
+//class Ctest
+//{
+//    static bool g_isNormalDequant;
+//    
+//public:
+//    
+//    Ctest(){ };
+//    
+//    bool get()
+//    {
+//        return g_isNormalDequant;
+//    };
+//    
+//    void set(bool b)
+//    {
+//        g_isNormalDequant = b;
+//    }
+//};
+
+//static bool g_isNormalDequant;
+
+
 //! \ingroup TLibCommon
 //! \{
 
@@ -51,11 +75,13 @@
 // Debugging
 // ====================================================================================================================
 
-#define DEBUG_STRING                                      1 ///< When enabled, prints out final decision debug info at encoder and decoder
+#define DEBUG_STRING                                      0 ///< When enabled, prints out final decision debug info at encoder and decoder
 #define DEBUG_ENCODER_SEARCH_BINS                         0 ///< When enabled, prints out each bin as it is coded during encoder search
 #define DEBUG_CABAC_BINS                                  0 ///< When enabled, prints out each bin as it is coded during final encode and decode
 #define DEBUG_INTRA_SEARCH_COSTS                          0 ///< When enabled, prints out the cost for each mode during encoder search
 #define DEBUG_TRANSFORM_AND_QUANTISE                      0 ///< When enabled, prints out each TU as it passes through the transform-quantise-dequantise-inverseTransform process
+#define Encode_DeQuant                                    0
+
 
 #define ENVIRONMENT_VARIABLE_DEBUG_AND_TEST               1 ///< When enabled, allows control of debug modifications via environment variables
 #define PRINT_MACRO_VALUES                                1 ///< When enabled, the encoder prints out a list of the non-environment-variable controlled macros and their values on startup
