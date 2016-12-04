@@ -395,7 +395,7 @@ Void TDecCu::xDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth ,
       break;
     case MODE_INTRA:        //внутри
 //          return;
-      xReconIntraQT( m_ppcCU[uiDepth], uiDepth, isNormalDequant );
+      xReconIntraQT( m_ppcCU[uiDepth], uiDepth, isNormalDequant, m_ppcCU[uiDepth]->getCUPelX(), m_ppcCU[uiDepth]->getCUPelY());
           return;
       break;
     default:
@@ -471,7 +471,8 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
                             TComYuv*    pcResiYuv,
                       const ComponentID compID,
                             TComTU     &rTu,
-                            bool isNormalDequant )
+                            bool isNormalDequant,
+                            UInt        uiDepth)
 {
   if (!rTu.ProcessComponentSection(compID))
   {
@@ -503,7 +504,7 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
     //recurse further
     do
     {
-      xIntraRecBlk(pcRecoYuv, pcPredYuv, pcResiYuv, compID, subTURecurse,isNormalDequant);
+      xIntraRecBlk(pcRecoYuv, pcPredYuv, pcResiYuv, compID, subTURecurse,isNormalDequant,uiDepth);
     } while (subTURecurse.nextSection(rTu));
 
     //------------------------------------------------
@@ -539,10 +540,6 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
   Pel*      piResi            = pcResiYuv->getAddr( compID, uiAbsPartIdx );
   TCoeff*   pcCoeff           = pcCU->getCoeff(compID) + rTu.getCoefficientOffset(compID);//( uiNumCoeffInc * uiAbsPartIdx );
 
-//    if(compID == COMPONENT_Y)
-//    {
-//        pcCoeff[0] = INT_MAX;
-//    }
     
   const QpParam cQP(*pcCU, compID);
 
@@ -555,7 +552,7 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
 
   if (pcCU->getCbf(uiAbsPartIdx, compID, rTu.GetTransformDepthRel()) != 0)
   {
-    m_pcTrQuant->invTransformNxN( rTu, compID, piResi, uiStride, pcCoeff, cQP DEBUG_STRING_PASS_INTO(psDebug) ,isNormalDequant );
+    m_pcTrQuant->invTransformNxN( rTu, compID, piResi, uiStride, pcCoeff, cQP DEBUG_STRING_PASS_INTO(psDebug) ,isNormalDequant , uiDepth  );
       
       if(!isNormalDequant)
           return;
@@ -672,7 +669,7 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
 
 
 Void
-TDecCu::xReconIntraQT( TComDataCU* pcCU, UInt uiDepth, bool isNormalDequant )
+TDecCu::xReconIntraQT( TComDataCU* pcCU, UInt uiDepth, bool isNormalDequant, UInt ctuX, UInt ctuY )
 {
     
   if (pcCU->getIPCMFlag(0))
@@ -693,7 +690,7 @@ TDecCu::xReconIntraQT( TComDataCU* pcCU, UInt uiDepth, bool isNormalDequant )
 
       do
     {
-      xIntraRecQT( m_ppcYuvReco[uiDepth], m_ppcYuvReco[uiDepth], m_ppcYuvResi[uiDepth], chanType, tuRecurseWithPU,isNormalDequant  );
+      xIntraRecQT( m_ppcYuvReco[uiDepth], m_ppcYuvReco[uiDepth], m_ppcYuvResi[uiDepth], chanType, tuRecurseWithPU,isNormalDequant ,uiDepth, ctuX, ctuY );
     } while (tuRecurseWithPU.nextSection(tuRecurseCU));
   }
 }
@@ -716,7 +713,9 @@ TDecCu::xIntraRecQT(TComYuv*    pcRecoYuv,
                     TComYuv*    pcResiYuv,
                     const ChannelType chType,
                     TComTU     &rTu,
-                    bool isNormalDequant)
+                    bool isNormalDequant
+                    , UInt uiDepth
+                    , UInt ctuX, UInt ctuY)
 {
   UInt uiTrDepth    = rTu.GetTransformDepthRel();
   TComDataCU *pcCU  = rTu.getCU();
@@ -726,14 +725,8 @@ TDecCu::xIntraRecQT(TComYuv*    pcRecoYuv,
   {
     if (isLuma(chType))
     {
-        TCoeff*   pcCoeff           = pcCU->getCoeff(COMPONENT_Y) + rTu.getCoefficientOffset(COMPONENT_Y);
-//        pcCoeff[0] = 2000;
-//        g_Count++;
         
-//        std::cout << "Bits count = " << g_Count << std::endl;
-//        return;
-        
-      xIntraRecBlk( pcRecoYuv, pcPredYuv, pcResiYuv, COMPONENT_Y,  rTu,isNormalDequant );
+        xIntraRecBlk( pcRecoYuv, pcPredYuv, pcResiYuv, COMPONENT_Y,  rTu,isNormalDequant,uiDepth );
         return;
     }
     else
@@ -742,7 +735,7 @@ TDecCu::xIntraRecQT(TComYuv*    pcRecoYuv,
       const UInt numValidComp=getNumberValidComponents(rTu.GetChromaFormat());
       for(UInt compID=COMPONENT_Cb; compID<numValidComp; compID++)
       {
-        xIntraRecBlk( pcRecoYuv, pcPredYuv, pcResiYuv, ComponentID(compID), rTu ,isNormalDequant);
+        xIntraRecBlk( pcRecoYuv, pcPredYuv, pcResiYuv, ComponentID(compID), rTu ,isNormalDequant, uiDepth );
       }
     }
   }
@@ -752,7 +745,7 @@ TDecCu::xIntraRecQT(TComYuv*    pcRecoYuv,
     TComTURecurse tuRecurseChild(rTu, false);
     do
     {
-      xIntraRecQT( pcRecoYuv, pcPredYuv, pcResiYuv, chType, tuRecurseChild ,isNormalDequant);
+      xIntraRecQT( pcRecoYuv, pcPredYuv, pcResiYuv, chType, tuRecurseChild ,isNormalDequant,uiDepth, ctuX, ctuY);
     } while (tuRecurseChild.nextSection(rTu));
   }
 }

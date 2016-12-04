@@ -22,6 +22,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TEncSlice::compressSlice(TComPic*, bool, bool):TEncSlice.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "ctuRsAddr">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TComYuv::copyPartToPartComponent(ComponentID, TComYuv*, unsigned int, unsigned int, unsigned int) const:TComYuv.cpp">
       </ContextState>
       <ContextState
@@ -49,10 +57,34 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TComTrQuant::xDeQuant(TComTU&amp;, int*, int*, ComponentID, QpParam const&amp;, bool, unsigned int):TComTrQuant.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pSrc[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TEncCu::compressCtu(TComDataCU*):TEncCu.cpp">
          <PersistentStrings>
             <PersistentString
                value = "(unsigned int)(&apos;/b&apos;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TDecCu::xDecompressCU(TComDataCU*, unsigned int, unsigned int, bool):TDecCu.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pCtu">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TDecCu::xReconIntraQT(TComDataCU*, unsigned int, bool):TDecCu.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pcCU">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

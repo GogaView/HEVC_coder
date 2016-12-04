@@ -67,6 +67,8 @@
 
 //static bool g_isNormalDequant;
 
+static const std::string c_strOutFile = "DataLog.txt";
+
 
 //! \ingroup TLibCommon
 //! \{
@@ -79,7 +81,7 @@
 #define DEBUG_ENCODER_SEARCH_BINS                         0 ///< When enabled, prints out each bin as it is coded during encoder search
 #define DEBUG_CABAC_BINS                                  0 ///< When enabled, prints out each bin as it is coded during final encode and decode
 #define DEBUG_INTRA_SEARCH_COSTS                          0 ///< When enabled, prints out the cost for each mode during encoder search
-#define DEBUG_TRANSFORM_AND_QUANTISE                      0 ///< When enabled, prints out each TU as it passes through the transform-quantise-dequantise-inverseTransform process
+#define DEBUG_TRANSFORM_AND_QUANTISE                      1 ///< When enabled, prints out each TU as it passes through the transform-quantise-dequantise-inverseTransform process
 #define Encode_DeQuant                                    0
 
 
@@ -113,7 +115,7 @@
 // Tool Switches
 // ====================================================================================================================
 
-#define ADAPTIVE_QP_SELECTION                             1 ///< G382: Adaptive reconstruction levels, non-normative part for adaptive QP selection
+#define ADAPTIVE_QP_SELECTION                             0 ///< G382: Adaptive reconstruction levels, non-normative part for adaptive QP selection
 
 #define AMP_ENC_SPEEDUP                                   1 ///< encoder only speed-up by AMP mode skipping
 #if AMP_ENC_SPEEDUP

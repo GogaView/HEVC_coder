@@ -816,7 +816,9 @@ Void TEncSlice::compressSlice( TComPic* pcPic, const Bool bCompressEntireSlice, 
                     pcSlice->getSPS()->getMaxCUHeight(),
                     pcSlice->getSPS()->getChromaFormatIdc() );
       decCu.init(&decEntropy, &TrQuant, &predict);
-      decCu.decompressCtu(pCtu,isNormalDequant);
+      
+      if(pcSlice->getSliceType() == I_SLICE)
+          decCu.decompressCtu(pCtu,isNormalDequant);
       
   }
       

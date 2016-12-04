@@ -97,9 +97,9 @@ protected:
 
   Void xReconInter              ( TComDataCU* pcCU, UInt uiDepth );
 
-  Void xReconIntraQT            ( TComDataCU* pcCU, UInt uiDepth, bool isNormalDequant );
-    Void xIntraRecBlk             ( TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ComponentID component, TComTU &rTu, bool isNormalDequant  );
-    Void xIntraRecQT              ( TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ChannelType chType, TComTU &rTu,bool isNormalDequant  );
+  Void xReconIntraQT            ( TComDataCU* pcCU, UInt uiDepth, bool isNormalDequant, UInt ctuX, UInt ctuY);
+    Void xIntraRecBlk             ( TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ComponentID component, TComTU &rTu, bool isNormalDequant, UInt        uiDepth  );
+    Void xIntraRecQT              ( TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ChannelType chType, TComTU &rTu,bool isNormalDequant , UInt uiDepth, UInt ctuX, UInt ctuY );
 
   Void xReconPCM                ( TComDataCU* pcCU, UInt uiDepth );
 
