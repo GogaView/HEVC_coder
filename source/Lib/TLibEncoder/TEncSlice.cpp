@@ -38,10 +38,32 @@
 #include "TEncTop.h"
 #include "TEncSlice.h"
 #include <math.h>
+#include <fstream>
 
 #include "TDecEntropy.h"
 #include "TComTrQuant.h"
 #include "TDecCu.h"
+
+#include "TComTU.h"
+
+std::ofstream FILEOut;
+
+void initFile()
+{
+    if(!FILEOut.is_open())
+    {
+        FILEOut.open("./Position");
+        
+        FILEOut << "frame" << "\t"
+        << "trSize" << "\t"
+        << "TrW" << "\t"
+        << "trH" << "\t"
+        << "trX" << "\t"
+        << "trY" << std::endl;
+    }
+}
+
+
 
 //! \ingroup TLibEncoder
 //! \{
@@ -49,6 +71,9 @@
 // ====================================================================================================================
 // Constructor / destructor / create / destroy
 // ====================================================================================================================
+
+Void xMyDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth, int iFrame);
+
 
 TEncSlice::TEncSlice()
  : m_encCABACTableIdx(I_SLICE)
@@ -549,7 +574,7 @@ Void TEncSlice::precompressSlice( TComPic* pcPic )
     setUpLambda(pcSlice, m_vdRdPicLambda[uiQpIdx], m_viRdPicQp    [uiQpIdx]);
 
     // try compress
-    compressSlice   ( pcPic, true, m_pcCfg->getFastDeltaQp());
+    compressSlice   ( pcPic, true, m_pcCfg->getFastDeltaQp(), 0);
 
     UInt64 uiPicDist        = m_uiPicDist; // Distortion, as calculated by compressSlice.
     // NOTE: This distortion is the chroma-weighted SSE distortion for the slice.
@@ -612,7 +637,7 @@ Void TEncSlice::calCostSliceI(TComPic* pcPic) // TODO: this only analyses the fi
 
 /** \param pcPic   picture class
  */
-Void TEncSlice::compressSlice( TComPic* pcPic, const Bool bCompressEntireSlice, const Bool bFastDeltaQP )
+Void TEncSlice::compressSlice( TComPic* pcPic, const Bool bCompressEntireSlice, const Bool bFastDeltaQP ,int iFrame )
 {
   // if bCompressEntireSlice is true, then the entire slice (not slice segment) is compressed,
   //   effectively disabling the slice-segment-mode.
@@ -797,38 +822,109 @@ Void TEncSlice::compressSlice( TComPic* pcPic, const Bool bCompressEntireSlice, 
     // run CTU trial encoder
     m_pcCuEncoder->compressCtu( pCtu ,isNormalDequant );
       
-  {
       
-       isNormalDequant = (false);
+      ///!!!!!!
+      if(pcPic->getSlice( 0 )->getSliceType() == I_SLICE)
+          xMyDecompressCU(pCtu, 0 , 0, iFrame);
       
-      TComPrediction predict;
-      predict.initTempBuff(m_picYuvPred.getChromaFormat());
-      
-      TDecEntropy decEntropy;
-      decEntropy.init(&predict);
-      
-      TComTrQuant TrQuant;
-      TrQuant.init(pcSlice->getSPS()->getMaxTrSize());
-
-      TDecCu decCu;
-      decCu.create ( pcSlice->getSPS()->getMaxTotalCUDepth(),
-                    pcSlice->getSPS()->getMaxCUWidth(),
-                    pcSlice->getSPS()->getMaxCUHeight(),
-                    pcSlice->getSPS()->getChromaFormatIdc() );
-      decCu.init(&decEntropy, &TrQuant, &predict);
-      
-      if(pcSlice->getSliceType() == I_SLICE)
-          decCu.decompressCtu(pCtu,isNormalDequant);
-      
-  }
-      
-      {
-//          TCoeff*   pcCoeff           = pCtu->getCoeff(COMPONENT_Y);
+    
+//      
+//      TComDataCU*  m_ppcCU = new TComDataCU ();
+//      m_ppcCU->copySubCU( pCtu, 0 );
+//      
+//      TComDataCU* pcCU = m_ppcCU;
+//      
+////      const ChannelType chanType = CHANNEL_TYPE_LUMA;
+//      //        const Bool NxNPUHas4Parts = ::isChroma(chanType) ? enable4ChromaPUsInIntraNxNCU(pcCU->getPic()->getChromaFormat()) : true;
+//      //        const UInt uiInitTrDepth = ( pcCU->getPartitionSize(0) != SIZE_2Nx2N && NxNPUHas4Parts ? 1 : 0 );
+//      
+//      
+//      //===== loop over partitions =====
+//      TComTURecurse tuRecurseCU(pcCU, 0);
+//      TComTURecurse tuRecurseWithPU(tuRecurseCU, false, TComTU::DONT_SPLIT);
+//      
+//      do
+//      {
+//          TComTURecurse tuRecurseChild(tuRecurseWithPU, false);
+//          do
+//          {
+//              UInt uiLog2TrSize     = tuRecurseChild.GetLog2LumaTrSize();
+//              UInt uiQTLayer        = (pcCU->getSlice()->getSPS())->getQuadtreeTULog2MaxSize() - uiLog2TrSize;
 //          
-//          TCoeff ind = pcCoeff[0];
-//          pcCoeff[0] = 1000;
-      }
+//          
+//              TCoeff*   pcCoeff           = pcCU->getCoeff(COMPONENT_Y) + tuRecurseChild.getCoefficientOffset(COMPONENT_Y);
+//              
+//              
+//              for(int w = 0; w != pcCU->getWidth(0); w++)
+//              {
+//                  for(int h = 0; h != pcCU->getHeight(0); h++)
+//                  {
+//                      std::cout << pcCoeff[w + h * pcCU->getHeight(0)] << " ";
+//                  }
+//                  std::cout << std::endl;
+//              }
+//              
+//              std::cout << std::endl;
+//              
+//              
+//          
+//          } while (tuRecurseChild.nextSection(tuRecurseWithPU) );
+//      } while (tuRecurseWithPU.nextSection(tuRecurseCU));
+//      
+////      
+////      
+////      TCoeff*   pcCoeff           = pcCU->getCoeff(COMPONENT_Y) + 0;
+////      
+////      
+////      for(int w = 0; w != pcCU->getWidth(0); w++)
+////      {
+////          for(int h = 0; h != pcCU->getHeight(0); h++)
+////          {
+////              std::cout << pcCoeff[w + h * pcCU->getHeight(0)] << " ";
+////          }
+////          std::cout << std::endl;
+////      }
+//      
+////      std::cout << std::endl;
+//      
+////      pcCoeff[0] = 1000;
+//      
+//      TrolololDeQuantCnt2++;
+//      std::cout << "TrolololDeQuantCnt2 = " <<  TrolololDeQuantCnt2 << std::endl;
       
+//
+//  {
+//      
+//       isNormalDequant = (false);
+//      
+//      TComPrediction predict;
+//      predict.initTempBuff(m_picYuvPred.getChromaFormat());
+//      
+//      TDecEntropy decEntropy;
+//      decEntropy.init(&predict);
+//      
+//      TComTrQuant TrQuant;
+//      TrQuant.init(pcSlice->getSPS()->getMaxTrSize());
+//
+//      TDecCu decCu;
+//      decCu.create ( pcSlice->getSPS()->getMaxTotalCUDepth(),
+//                    pcSlice->getSPS()->getMaxCUWidth(),
+//                    pcSlice->getSPS()->getMaxCUHeight(),
+//                    pcSlice->getSPS()->getChromaFormatIdc() );
+//      decCu.init(&decEntropy, &TrQuant, &predict);
+//      
+//      if(pcSlice->getSliceType() == I_SLICE)
+//          decCu.decompressCtu(pCtu,isNormalDequant);
+//      
+//  }
+//      
+//      {
+////          TCoeff*   pcCoeff           = pCtu->getCoeff(COMPONENT_Y);
+////          
+////          TCoeff ind = pcCoeff[0];
+////          pcCoeff[0] = 1000;
+//      }
+//      
       
       
       //       g_isNormalDequant = (true);
@@ -936,7 +1032,214 @@ Void TEncSlice::compressSlice( TComPic* pcPic, const Bool bCompressEntireSlice, 
   //}
 }
 
-Void TEncSlice::encodeSlice   ( TComPic* pcPic, TComOutputBitstream* pcSubstreams, UInt &numBinsCoded )
+bool isVoid( TCoeff* pcCoeff, int W,  int H)
+{
+    auto iTotal = 0;
+    
+    for(int w = 0; w != W; w++)
+    {
+        for(int h = 0; h != H; h++)
+        {
+            iTotal += abs(pcCoeff[w + h * W]);
+        }
+    }
+    
+    return iTotal == 0;
+}
+
+bool isGood( TCoeff* pcCoeff, int W,  int H, int iLevel)
+{
+    iLevel++;
+    
+    for(int w = 0; w < iLevel; w++)
+    {
+        for(int h = 0; h < iLevel; h++)
+        {
+            if( abs(pcCoeff[w + h * W])  == 0)
+            {
+                return false;
+            }
+        }
+    }
+    
+    for(int w = 1; w < iLevel; w++)
+    {
+        for(int h = 1; h < iLevel; h++)
+        {
+            if( abs(pcCoeff[w + h * W]) + 1 > abs(pcCoeff[0]) )
+            {
+                return false;
+            }
+        }
+    }
+    
+    return true;
+}
+
+bool isValid( TCoeff* pcCoeff, int W,  int H)
+{
+    for(int w = 0; w != W; w++)
+    {
+        for(int h = 0; h != H; h++)
+        {
+            if( abs(pcCoeff[w + h * W]) > abs(pcCoeff[0]))
+            {
+                return false;
+            }
+        }
+    }
+    
+    return true;
+}
+
+
+
+
+
+
+Void xMyDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth, int iFrame)
+{
+    initFile();
+    
+    TComPic* pcPic = pCtu->getPic();
+    
+    TComSlice * pcSlice = pCtu->getSlice();
+    const TComSPS &sps=*(pcSlice->getSPS());
+    
+    Bool bBoundary = false;
+    UInt uiLPelX   = pCtu->getCUPelX() + g_auiRasterToPelX[ g_auiZscanToRaster[uiAbsPartIdx] ];
+    UInt uiRPelX   = uiLPelX + (sps.getMaxCUWidth()>>uiDepth)  - 1;
+    UInt uiTPelY   = pCtu->getCUPelY() + g_auiRasterToPelY[ g_auiZscanToRaster[uiAbsPartIdx] ];
+    UInt uiBPelY   = uiTPelY + (sps.getMaxCUHeight()>>uiDepth) - 1;
+    
+    if( ( uiRPelX >= sps.getPicWidthInLumaSamples() ) || ( uiBPelY >= sps.getPicHeightInLumaSamples() ) )
+    {
+        bBoundary = true;
+    }
+    
+    if( ( ( uiDepth < pCtu->getDepth( uiAbsPartIdx ) ) && ( uiDepth < sps.getLog2DiffMaxMinCodingBlockSize() ) ) || bBoundary )
+    {
+        UInt uiNextDepth = uiDepth + 1;
+        UInt uiQNumParts = pCtu->getTotalNumPart() >> (uiNextDepth<<1);
+        UInt uiIdx = uiAbsPartIdx;
+        for ( UInt uiPartIdx = 0; uiPartIdx < 4; uiPartIdx++ )
+        {
+            uiLPelX = pCtu->getCUPelX() + g_auiRasterToPelX[ g_auiZscanToRaster[uiIdx] ];
+            uiTPelY = pCtu->getCUPelY() + g_auiRasterToPelY[ g_auiZscanToRaster[uiIdx] ];
+            
+            if( ( uiLPelX < sps.getPicWidthInLumaSamples() ) && ( uiTPelY < sps.getPicHeightInLumaSamples() ) )
+            {
+                xMyDecompressCU(pCtu, uiIdx, uiNextDepth, iFrame );
+            }
+            
+            uiIdx += uiQNumParts;
+        }
+        return;
+    }
+    
+    
+    
+        
+    
+    TComDataCU*  pcCU = new TComDataCU ();
+    pcCU->copySubCU( pCtu, uiAbsPartIdx );
+    
+    if(pcCU->getPredictionMode(0) != MODE_INTRA)
+        return;
+    
+    
+    const ChannelType chanType=ChannelType(CHANNEL_TYPE_LUMA);
+    const Bool NxNPUHas4Parts = ::isChroma(chanType) ? enable4ChromaPUsInIntraNxNCU(pcCU->getPic()->getChromaFormat()) : true;
+    const UInt uiInitTrDepth = ( pcCU->getPartitionSize(0) != SIZE_2Nx2N && NxNPUHas4Parts ? 1 : 0 );
+    
+    
+    
+    
+    TComTURecurse tuRecurseCU(pcCU, 0);
+    TComTURecurse rTu(tuRecurseCU, false, (uiInitTrDepth==0)?TComTU::DONT_SPLIT : TComTU::QUAD_SPLIT);
+    
+    do
+    {
+        
+        auto offset = rTu.getCoefficientOffset(COMPONENT_Y);
+        TCoeff*   pcCoeff = pcCU->getCoeff(COMPONENT_Y) + rTu.getCoefficientOffset(COMPONENT_Y);
+        
+        for(int w = 0; w != rTu.getRect(COMPONENT_Y).width; w++)
+        {
+            for(int h = 0; h != rTu.getRect(COMPONENT_Y).height; h++)
+            {
+                std::cout << pcCoeff[w + h * rTu.getRect(COMPONENT_Y).width] << " ";
+            }
+            std::cout << std::endl;
+        }
+        
+        std::cout << std::endl;
+        
+        
+        int ii = 0;
+        int i = (ii*rTu.getRect(COMPONENT_Y).width)+ii;
+//        
+//        if ( ( rand() % 2000) < 4 &&
+//            isGood(pcCoeff , rTu.getRect(COMPONENT_Y).width, rTu.getRect(COMPONENT_Y).height, ii) &&
+//            !isVoid(pcCoeff , rTu.getRect(COMPONENT_Y).width, rTu.getRect(COMPONENT_Y).height) &&
+//            (pcCoeff[i] != 0) &&
+//            rTu.getRect(COMPONENT_Y).width * rTu.getRect(COMPONENT_Y).height > i)
+        {
+
+//            if(TrolololDeQuantCnt2 == 0)
+//            {
+////                TrolololDeQuantCnt2++;
+//                pcCoeff[0] = 1000;
+//                pcCoeff[1] = 0;
+//                pcCoeff[8] = 0;
+//                
+//                
+//                return;
+//                
+//                
+//            }
+//            else
+//                return;
+            
+            
+//            pcCoeff[i] = pcCoeff[i] / abs(pcCoeff[i])  *  (pcCoeff[i]%2 == 0 ? abs(pcCoeff[i]) : abs(pcCoeff[i]) + 1 );
+            
+            pcCoeff[i] = 1000;
+
+            FILEOut << iFrame << "\t"
+                    << rTu.GetLog2LumaTrSize() << "\t"
+                    << rTu.getRect(COMPONENT_Y).width << "\t"
+                    << rTu.getRect(COMPONENT_Y).height << "\t"
+                    << pcCU->m_uiCUPelX << "\t"
+                    << pcCU->m_uiCUPelY << std::endl;
+            
+            
+            int sum = 0;
+            for(int i = 0; i != rTu.getRect(COMPONENT_Y).width * rTu.getRect(COMPONENT_Y).height; i++)
+                sum += abs(pcCoeff[i]);
+            
+            
+            int hash = rTu.getRect(COMPONENT_Y).width * rTu.getRect(COMPONENT_Y).height * sum;
+
+            
+            TrolololDeQuantCnt2++;
+            std::cout << "TrolololDeQuantCnt2 = " <<  TrolololDeQuantCnt2 << "   " << hash << std::endl;
+        }
+        
+        
+    } while (rTu.nextSection(tuRecurseCU));
+    
+    
+    
+    
+}
+
+    
+    
+    
+    
+    
+    Void TEncSlice::encodeSlice   ( TComPic* pcPic, TComOutputBitstream* pcSubstreams, UInt &numBinsCoded )
 {
   TComSlice *const pcSlice           = pcPic->getSlice(getSliceIdx());
 

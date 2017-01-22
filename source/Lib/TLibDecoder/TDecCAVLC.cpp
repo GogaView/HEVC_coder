@@ -641,6 +641,9 @@ Void TDecCavlc::parseSPS(TComSPS* pcSPS)
   }
 #endif
   assert(uiCode <= 8);
+    if(uiCode != 0)
+        int i = 0;
+    
   pcSPS->setBitDepth(CHANNEL_TYPE_LUMA, 8 + uiCode);
 
 #if O0043_BEST_EFFORT_DECODING

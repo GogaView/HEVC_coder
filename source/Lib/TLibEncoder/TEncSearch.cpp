@@ -1165,6 +1165,14 @@ Void TEncSearch::xIntraCodingTUBlock(       TComYuv*    pcOrgYuv,
   const Bool           bUseReconstructedResidualForEstimate = m_pcEncCfg->getUseReconBasedCrossCPredictionEstimate();
         Pel *const     lumaResidualForEstimate              = bUseReconstructedResidualForEstimate ? reconstructedLumaResidual : encoderLumaResidual;
 
+    
+    
+#if DEBUG_TRANSFORM_AND_QUANTISE
+    std::cout << g_debugCounter << ": " << uiWidth << "x" << uiHeight << " channel " << compID << " Test \n";
+    printBlock(piOrg, uiWidth, uiHeight, uiStride);
+#endif
+    
+    
 #if DEBUG_STRING
   const Int debugPredModeMask=DebugStringGetPredModeMask(MODE_INTRA);
 #endif
@@ -1277,7 +1285,7 @@ Void TEncSearch::xIntraCodingTUBlock(       TComYuv*    pcOrgYuv,
 #if ADAPTIVE_QP_SELECTION
     pcArlCoeff,
 #endif
-    uiAbsSum, cQP
+    uiAbsSum, cQP, pcPredYuv
     );
 
   //--- inverse transform ---
@@ -2389,6 +2397,18 @@ TEncSearch::estIntraPredLumaQT(TComDataCU* pcCU,
 #else
       xRecurIntraCodingLumaQT( pcOrgYuv, pcPredYuv, pcResiYuv, resiLumaPU, uiPUDistY, dPUCost, tuRecurseWithPU DEBUG_STRING_PASS_INTO(sMode) );
 #endif
+        
+        /////
+        
+//        const UInt  uiLog2TrafoSize = tuRecurseWithPU.GetLog2LumaTrSize();
+//        UInt    uiQTLayer       = pcCU->getSlice()->getSPS()->getQuadtreeTULog2MaxSize() - uiLog2TrafoSize;
+        
+//        TCoeff *pcCoeff          = m_ppcQTTempCoeff[COMPONENT_Y][uiQTLayer] + tuRecurseWithPU.getCoefficientOffset(COMPONENT_Y);
+        
+        
+        
+        int i = 0;
+        ///////
 
 #if DEBUG_INTRA_SEARCH_COSTS
       std::cout << "2nd pass [luma,chroma] mode [" << Int(pcCU->getIntraDir(CHANNEL_TYPE_LUMA, uiPartOffset)) << "," << Int(pcCU->getIntraDir(CHANNEL_TYPE_CHROMA, uiPartOffset)) << "] cost = " << dPUCost << "\n";

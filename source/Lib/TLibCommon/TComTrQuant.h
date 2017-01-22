@@ -131,7 +131,8 @@ public:
                            TCoeff        * rpcArlCoeff,
 #endif
                            TCoeff         & uiAbsSum,
-                     const QpParam        & cQP
+                    const QpParam        & cQP,
+                    TComYuv*          piPred = NULL
                     );
 
 

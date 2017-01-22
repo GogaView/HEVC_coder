@@ -237,6 +237,34 @@ Void TEncCu::compressCtu( TComDataCU* pCtu, bool isNormalDequant )
 
   xCompressCU( m_ppcBestCU[0], m_ppcTempCU[0], 0 DEBUG_STRING_PASS_INTO(sDebug),isNormalDequant );
   DEBUG_STRING_OUTPUT(std::cout, sDebug)
+    
+//    int i = 0;
+    
+//    for(auto i = 0 ; i < m_uhTotalDepth-1 ; i++)
+//    {
+//        TComDataCU* pcCU = m_ppcBestCU[i];
+//        
+//        const ChannelType chanType = CHANNEL_TYPE_LUMA;
+////        const Bool NxNPUHas4Parts = ::isChroma(chanType) ? enable4ChromaPUsInIntraNxNCU(pcCU->getPic()->getChromaFormat()) : true;
+////        const UInt uiInitTrDepth = ( pcCU->getPartitionSize(0) != SIZE_2Nx2N && NxNPUHas4Parts ? 1 : 0 );
+//        
+//        TCoeff*   pcCoeff           = pcCU->getCoeff(COMPONENT_Y) + 0;
+//        
+//        for(int w = 0; w != pcCU->getWidth(0); w++)
+//        {
+//            for(int h = 0; h != pcCU->getHeight(0); h++)
+//            {
+//                std::cout << pcCoeff[w + h * pcCU->getHeight(0)] << " ";
+//            }
+//            std::cout << std::endl;
+//        }
+//        
+//        std::cout << std::endl;
+////        break;
+//        
+//        int iii = 0;
+//        pcCoeff[0] = 10000;
+//    }
 
 #if ADAPTIVE_QP_SELECTION
   if( m_pcEncCfg->getUseAdaptQpSelect() )

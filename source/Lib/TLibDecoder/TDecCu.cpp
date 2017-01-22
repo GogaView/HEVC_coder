@@ -538,6 +538,7 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
 
   //===== inverse transform =====
   Pel*      piResi            = pcResiYuv->getAddr( compID, uiAbsPartIdx );
+    auto i = rTu.getCoefficientOffset(compID);
   TCoeff*   pcCoeff           = pcCU->getCoeff(compID) + rTu.getCoefficientOffset(compID);//( uiNumCoeffInc * uiAbsPartIdx );
 
     

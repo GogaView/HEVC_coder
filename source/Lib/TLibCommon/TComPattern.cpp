@@ -340,6 +340,9 @@ Void fillReferenceSamples( const Int bitDepth,
   Int  iDCValue = 1 << (bitDepth - 1);
   const Int iTotalUnits = iAboveUnits + iLeftUnits + 1; //+1 for top-left
 
+    if(bitDepth != 8)
+        int i = 0;
+    
   if (iNumIntraNeighbor == 0)
   {
     // Fill border with DC value

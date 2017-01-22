@@ -402,6 +402,9 @@ Void TComPrediction::predIntraAng( const ComponentID compID, UInt uiDirMode, Pel
 
   // get starting pixel in block
   const Int sw = (2 * iWidth + 1);
+    
+    if(iWidth != 64)
+        int i = 0;
 
   if ( bUseLosslessDPCM )
   {
@@ -731,7 +734,7 @@ Void TComPrediction::getMvPredAMVP( TComDataCU* pcCU, UInt uiPartIdx, UInt uiPar
 Void TComPrediction::xPredIntraPlanar( const Pel* pSrc, Int srcStride, Pel* rpDst, Int dstStride, UInt width, UInt height )
 {
   assert(width <= height);
-
+    
   Int leftColumn[MAX_CU_SIZE+1], topRow[MAX_CU_SIZE+1], bottomRow[MAX_CU_SIZE], rightColumn[MAX_CU_SIZE];
   UInt shift1Dhor = g_aucConvertToBit[ width ] + 2;
   UInt shift1Dver = g_aucConvertToBit[ height ] + 2;

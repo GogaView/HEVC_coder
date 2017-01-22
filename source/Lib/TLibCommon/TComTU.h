@@ -69,6 +69,10 @@ class TComTU
     TComDataCU   *mpcCU;
     UInt          mLog2TrLumaSize;
     TComTU       *mpParent;
+    
+public:
+    TComYuv       *m_piPred;
+protected:
 
     TComTU(const TComTU &);           // not defined - do not use
     TComTU&operator=(const TComTU &); // not defined - do not use

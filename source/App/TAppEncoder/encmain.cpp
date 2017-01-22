@@ -53,6 +53,9 @@
 
 int main(int argc, char* argv[])
 {
+    srand(time(NULL));
+    
+    
   TAppEncTop  cTAppEncTop;
 
   // print information

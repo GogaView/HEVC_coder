@@ -3,6 +3,20 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "TEncSearch::xIntraCodingTUBlock(TComYuv*, TComYuv*, TComYuv*, short (*) [4096], bool, unsigned int&amp;, ComponentID, TComTU&amp;, bool, int):TEncSearch.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "TComYuv::copyPartToPartComponent(ComponentID, TComYuv*, unsigned int, unsigned int, unsigned int) const:TComYuv.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "TDecCu::xDecompressCU(TComDataCU*, unsigned int, unsigned int, bool):TDecCu.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pCtu">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TComTrQuant::xQuant(TComTU&amp;, int*, int*, int*, int&amp;, ComponentID, QpParam const&amp;):TComTrQuant.cpp">
          <PersistentStrings>
             <PersistentString
@@ -11,13 +25,45 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TEncSearch::xIntraCodingTUBlock(TComYuv*, TComYuv*, TComYuv*, short (*) [4096], bool, unsigned int&amp;, ComponentID, TComTU&amp;, std::string&amp;, int):TEncSearch.cpp">
+         contextName = "TEncCu::compressCtu(TComDataCU*, bool):TEncCu.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "uiWidth">
+               value = "m_ppcBestCU">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TEncSearch::estIntraPredLumaQT(TComDataCU*, TComYuv*, TComYuv*, TComYuv*, TComYuv*, short (*) [4096], std::string&amp;):TEncSearch.cpp">
+         <PersistentStrings>
             <PersistentString
-               value = "uiQTLayer">
+               value = "uiDepth">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TComPrediction::xPredIntraPlanar(short const*, int, short*, int, unsigned int, unsigned int):TComPrediction.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pSrc[k-srcStride]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "xMyDecompressCU(TComDataCU*, unsigned int, unsigned int, int):TEncSlice.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "TEncCu::create(unsigned char, unsigned int, unsigned int, ChromaFormat):TEncCu.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(int)uhTotalDepth">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TDecCu::xReconIntraQT(TComDataCU*, unsigned int, bool):TDecCu.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pcCU">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -30,13 +76,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TComYuv::copyPartToPartComponent(ComponentID, TComYuv*, unsigned int, unsigned int, unsigned int) const:TComYuv.cpp">
-      </ContextState>
-      <ContextState
-         contextName = "TEncSearch::estIntraPredLumaQT(TComDataCU*, TComYuv*, TComYuv*, TComYuv*, TComYuv*, short (*) [4096], std::string&amp;):TEncSearch.cpp">
+         contextName = "TEncSearch::xIntraCodingTUBlock(TComYuv*, TComYuv*, TComYuv*, short (*) [4096], bool, unsigned int&amp;, ComponentID, TComTU&amp;, std::string&amp;, int):TEncSearch.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "uiDepth">
+               value = "uiWidth">
+            </PersistentString>
+            <PersistentString
+               value = "uiQTLayer">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -65,26 +111,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TEncSearch::estIntraPredLumaQT(TComDataCU*, TComYuv*, TComYuv*, TComYuv*, TComYuv*, short (*) [4096], bool):TEncSearch.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "piPred">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TComPrediction::predIntraAng(ComponentID, unsigned int, short*, unsigned int, short*, unsigned int, TComTU&amp;, bool, bool):TComPrediction.cpp">
+      </ContextState>
+      <ContextState
          contextName = "TEncCu::compressCtu(TComDataCU*):TEncCu.cpp">
          <PersistentStrings>
             <PersistentString
                value = "(unsigned int)(&apos;/b&apos;)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TDecCu::xDecompressCU(TComDataCU*, unsigned int, unsigned int, bool):TDecCu.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "pCtu">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TDecCu::xReconIntraQT(TComDataCU*, unsigned int, bool):TDecCu.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "pcCU">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -1155,6 +1155,10 @@ Void TComTrQuant::xQuant(       TComTU       &rTu,
   const Int channelBitDepth = pcCU->getSlice()->getSPS()->getBitDepth(toChannelType(compID));
     st_BlocksCount++;
     
+    if(rect.width == 4)
+        int i = 0;
+    
+    
   TCoeff* piCoef    = pSrc;
   TCoeff* piQCoef   = pDes;
 #if ADAPTIVE_QP_SELECTION
@@ -1336,52 +1340,8 @@ Bool TComTrQuant::xNeedRDOQ( TComTU &rTu, TCoeff * pSrc, const ComponentID compI
 {
   assert(compID<MAX_NUM_COMPONENT);
     
-//    if(pSrc[0] != INT_MAX && compID == COMPONENT_Y)
-//        TrolololDeQuantCnt2++;
+ 
     
-//    TrolololDeQuantCnt++;
-//    std::cout << TrolololDeQuantCnt << std::endl;
-    
-//        std::cout << "DeQuant : " << TrolololDeQuantCnt << " \t E = " << TrolololDeQuantCnt2 << std::endl;
-    
-//    TCoeff value = 10000;
-    
-//    if(!isNormalDequant )
-//    {
-//        if(compID == COMPONENT_Y)
-//        {
-//            if(rand()%5000 == 0)
-//            {
-//                pSrc[0] = value;
-//            }
-//            
-//            
-//            pSrc[0] = value;
-//            if(pSrc[0] >= 5)
-//            {
-//                pSrc[0]++;
-//                TrolololDeQuantCnt++;
-//                std::cout << "DeQuant : " << TrolololDeQuantCnt << std::endl;
-//            }
-//            
-//            TrolololDeQuantCnt2++;
-//            std::cout << "DeQuant : " << TrolololDeQuantCnt2 << std::endl;
-//        }
-//        
-//        return;
-//    }
-    
-//    if(!isNormalDequant && compID == COMPONENT_Y && abs( pSrc[0]) > 10)
-//    {
-//        if(rand()%25 == 0)
-//        {
-//        pSrc[0] = 1000000;
-//        TrolololDeQuantCnt++;
-//        std::cout << "DeQuant : " << TrolololDeQuantCnt << std::endl;
-//        return;
-//        }
-//    }
-//    return;
     
     
         TComDataCU          *pcCU               = rTu.getCU();
@@ -1404,43 +1364,38 @@ Bool TComTrQuant::xNeedRDOQ( TComTU &rTu, TCoeff * pSrc, const ComponentID compI
   const Int                  channelBitDepth    = pcCU->getSlice()->getSPS()->getBitDepth(toChannelType(compID));
 #endif
 
+    if(transformMaximum != 32767)
+        int i = 0;
     
     
+    if(rect.width == 4)
+    {
+        int i = 0;
+    }
     
+    if( compID == COMPONENT_Y)
+        int i = 0;
     
-//    if( compID == COMPONENT_Y /*&& h == 8*/)
+    if( compID == COMPONENT_Y && abs(pSrc[0]) == 31)
+    {
+        int i = 0;
+    }
+    
+//    if( abs(pSrc[0]) != 0 && abs(pSrc[0]%2) == 0 && compID == COMPONENT_Y)
 //    {
-//    if(cQP.Qp >= 35 )
-//    {
-//        if( pSrc[3*h+3] % 2 == 0 && ( pSrc[3*h+3] >= iConst ||  pSrc[3*h+3] <= (-1) * iConst) )
-//        {
-//            pSrc[3*h+3]++;
-//            TrolololDeQuantCnt++;
-//            std::cout << "DeQuant : " << TrolololDeQuantCnt << std::endl;
-//        }
+//
+//        int sum = 0;
+//        for(int i = 0; i != uiWidth * uiWidth; i++)
+//            sum += abs(pSrc[i]);
+//        
+//        
+//        int hash = uiWidth * uiWidth * sum;
+//        
+//        
+//        TrolololDeQuantCnt2++;
+//        std::cout << "TrolololDeQuantCnt2 = " <<  TrolololDeQuantCnt2 << "   " << hash << std::endl;
 //    }
-//    else if(cQP.Qp  >= 17 )
-//    {
-//        if( pSrc[2*h+2] % 2 == 0 && ( pSrc[2*h+2] >= iConst ||  pSrc[2*h+2] <= (-1) * iConst) )
-//        {
-//            pSrc[2*h+2]++;
-//            TrolololDeQuantCnt++;
-//            std::cout << "DeQuant : " << TrolololDeQuantCnt << std::endl;
-//        }
-//    }
-//    else if(cQP.Qp  >= 0 )
-//    {
-//        if( pSrc[1*h+1] % 2 == 0 && ( pSrc[1*h+1] >= iConst ||  pSrc[1*h+1] <= (-1) * iConst) )
-//        {
-//            pSrc[1*h+1]++;
-//            TrolololDeQuantCnt++;
-//            std::cout << "DeQuant : " << TrolololDeQuantCnt << std::endl;
-//        }
-//    }
-//    }
-//    
-//    return;
-    
+   
   
     
     
@@ -1451,6 +1406,7 @@ Bool TComTrQuant::xNeedRDOQ( TComTU &rTu, TCoeff * pSrc, const ComponentID compI
   const Bool bClipTransformShiftTo0 = (pcCU->getTransformSkip(uiAbsPartIdx, compID) != 0) && pcCU->getSlice()->getSPS()->getSpsRangeExtension().getExtendedPrecisionProcessingFlag();
   const Int  originalTransformShift = getTransformShift(channelBitDepth, uiLog2TrSize, maxLog2TrDynamicRange);
   const Int  iTransformShift        = bClipTransformShiftTo0 ? std::max<Int>(0, originalTransformShift) : originalTransformShift;
+    
 
   const Int QP_per = cQP.per;
   const Int QP_rem = cQP.rem;
@@ -1548,6 +1504,9 @@ Bool TComTrQuant::xNeedRDOQ( TComTU &rTu, TCoeff * pSrc, const ComponentID compI
 
         piCoef[n] = TCoeff(Clip3<Intermediate_Int>(transformMinimum,transformMaximum,iCoeffQ));
       }
+        
+        if(inputMinimum != transformMinimum)
+            int i = 0;
     }
   }
 }
@@ -1589,7 +1548,8 @@ Void TComTrQuant::transformNxN(       TComTU        & rTu,
                                       TCoeff       *  pcArlCoeff,
 #endif
                                       TCoeff        & uiAbsSum,
-                                const QpParam       & cQP
+                                const QpParam       & cQP,
+                                      TComYuv*          piPred
                               )
 {
   const TComRectangle &rect = rTu.getRect(compID);
@@ -1599,6 +1559,8 @@ Void TComTrQuant::transformNxN(       TComTU        & rTu,
   const UInt uiAbsPartIdx   = rTu.GetAbsPartIdxTU();
   const UInt uiOrgTrDepth   = rTu.GetTransformDepthRel();
 
+    
+    
   uiAbsSum=0;
 
   RDPCMMode rdpcmMode = RDPCM_OFF;
@@ -1647,7 +1609,13 @@ Void TComTrQuant::transformNxN(       TComTU        & rTu,
       std::cout << g_debugCounter << ": " << uiWidth << "x" << uiHeight << " channel " << compID << " TU between transform and quantiser\n";
       printBlock(m_plTempCoeff, uiWidth, uiHeight, uiWidth);
 #endif
-
+        
+        // copy Pred
+        
+//        rTu.m_piPred = new TComYuv[piPred->getWidth(COMPONENT_Y) * piPred->getHeight(COMPONENT_Y)];
+//        
+//        std::memcpy(rTu.m_piPred, piPred->m_apiBuf, piPred->getWidth(COMPONENT_Y) * piPred->getHeight(COMPONENT_Y) * sizeof(Pel));
+        
       xQuant( rTu, m_plTempCoeff, rpcCoeff,
 
 #if ADAPTIVE_QP_SELECTION
@@ -1662,14 +1630,14 @@ Void TComTrQuant::transformNxN(       TComTU        & rTu,
         
         
         
-        xQuant( rTu, m_plTempCoeff, rpcCoeff,
-               
-#if ADAPTIVE_QP_SELECTION
-               pcArlCoeff,
-#endif
-               uiAbsSum, compID, cQP );
-        
-        
+//        xQuant( rTu, m_plTempCoeff, rpcCoeff,
+//               
+//#if ADAPTIVE_QP_SELECTION
+//               pcArlCoeff,
+//#endif
+//               uiAbsSum, compID, cQP );
+//        
+//        
 #if DEBUG_TRANSFORM_AND_QUANTISE
       std::cout << g_debugCounter << ": " << uiWidth << "x" << uiHeight << " channel " << compID << " TU at output of quantiser\n";
       printBlock(rpcCoeff, uiWidth, uiHeight, uiWidth);
@@ -1757,10 +1725,11 @@ Void TComTrQuant::invTransformNxN(      TComTU        &rTu,
     printBlock(pcCoeff, uiWidth, uiHeight, uiWidth);
 #endif
 
-      if(pcCoeff[0] == -17 && pcCoeff[1] == 1)
-      {
-          int i = 0;
-      }
+//      if( compID == COMPONENT_Y)
+//      {
+//          std::cout << g_debugCounter << ": " << uiWidth << "x" << uiHeight << " channel " << compID << " TU at input to dequantiser\n";
+//          printBlock(pcCoeff, uiWidth, uiHeight, uiWidth);
+//      }
       
       
       if(!isNormalDequant )
@@ -1771,51 +1740,51 @@ Void TComTrQuant::invTransformNxN(      TComTU        &rTu,
 //    if(!isNormalDequant )
 //        return;
 //
-      
-      
-      if(!isNormalDequant )
-      {
-              if(compID == COMPONENT_Y)
-              {
-                  if(rand()%5000 == 0)
-                  {
-                      m_plTempCoeff[0] = 100000;
-                  }
-                  
-                  
-//                  m_plTempCoeff[0] = 100000;
-//                  if(m_plTempCoeff[0] >= 5)
+//      
+//      
+//      if(!isNormalDequant )
+//      {
+//              if(compID == COMPONENT_Y)
+//              {
+//                  if(rand()%5000 == 0)
 //                  {
-//                      m_plTempCoeff[0]++;
-//                      TrolololDeQuantCnt++;
-//                      std::cout << "DeQuant : " << TrolololDeQuantCnt << std::endl;
+//                      m_plTempCoeff[0] = 100000;
 //                  }
 //                  
-//                  TrolololDeQuantCnt2++;
-//                  std::cout << "DeQuant : " << TrolololDeQuantCnt2 << std::endl;
-                  
+//                  
+////                  m_plTempCoeff[0] = 100000;
+////                  if(m_plTempCoeff[0] >= 5)
+////                  {
+////                      m_plTempCoeff[0]++;
+////                      TrolololDeQuantCnt++;
+////                      std::cout << "DeQuant : " << TrolololDeQuantCnt << std::endl;
+////                  }
+////                  
+////                  TrolololDeQuantCnt2++;
+////                  std::cout << "DeQuant : " << TrolololDeQuantCnt2 << std::endl;
+      
 #if DEBUG_TRANSFORM_AND_QUANTISE
                   std::cout << g_debugCounter << ": " << uiWidth << "x" << uiHeight << " channel " << compID << " TU output of dequantiser\n";
                   printBlock(m_plTempCoeff, uiWidth, uiHeight, uiWidth);
 #endif
-                  
-                  TCoeff zero = 0;
-//                    xQuant( rTu, m_plTempCoeff, pcCoeff,
-//             
-////#if ADAPTIVE_QP_SELECTION
-////                 pcArlCoeff,
-////#endif
-//                 zero, compID, cQP );
 //                  
-                  {
-                      
-                      
-                      
-                      
-                  }
-                  
-                  
-                  
+//                  TCoeff zero = 0;
+////                    xQuant( rTu, m_plTempCoeff, pcCoeff,
+////             
+//////#if ADAPTIVE_QP_SELECTION
+//////                 pcArlCoeff,
+//////#endif
+////                 zero, compID, cQP );
+////
+//                  {
+//                      
+//                      
+//                      
+//                      
+//                  }
+//                  
+//                  
+//                  
                   
                   
                   
@@ -1824,11 +1793,11 @@ Void TComTrQuant::invTransformNxN(      TComTU        &rTu,
                   std::cout << g_debugCounter << ": " << uiWidth << "x" << uiHeight << " channel " << compID << " TU output of quantiser\n";
                   printBlock(pcCoeff, uiWidth, uiHeight, uiWidth);
 #endif
-              }
-       
-          
-          return;
-      }
+//              }
+//
+//          
+//          return;
+//      }
       
 
 #if DEBUG_TRANSFORM_AND_QUANTISE

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "489943789.5442"
+            timestampString = "506769698.516213"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2294"
-            endingLineNumber = "2294"
+            startingLineNumber = "2263"
+            endingLineNumber = "2263"
             landmarkName = "TComTrQuant::xITransformSkip( TCoeff* plCoef, Pel* pResidual, UInt uiStride, TComTU &amp;rTu, const ComponentID component )"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "source/Lib/TLibCommon/TComTrQuant.cpp"
-            timestampString = "489943789.5442"
+            timestampString = "506769698.516213"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2306"
-            endingLineNumber = "2306"
+            startingLineNumber = "2275"
+            endingLineNumber = "2275"
             landmarkName = "TComTrQuant::xITransformSkip( TCoeff* plCoef, Pel* pResidual, UInt uiStride, TComTU &amp;rTu, const ComponentID component )"
             landmarkType = "5">
          </BreakpointContent>
