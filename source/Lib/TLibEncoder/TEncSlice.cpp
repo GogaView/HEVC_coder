@@ -47,6 +47,9 @@
 #include "TComTU.h"
 
 std::ofstream FILEOut;
+int iCount;
+
+
 
 void initFile()
 {
@@ -59,7 +62,9 @@ void initFile()
         << "TrW" << "\t"
         << "trH" << "\t"
         << "trX" << "\t"
-        << "trY" << std::endl;
+        << "trY" << "\t"
+        << "offset" << "\t"
+        << "VALUE" << std::endl;
     }
 }
 
@@ -72,8 +77,12 @@ void initFile()
 // Constructor / destructor / create / destroy
 // ====================================================================================================================
 
-Void xMyDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth, int iFrame);
+Void xMyDecompressCU_intra( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth, int iFrame);
+Void xMyDecompressCU_inter( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth, int iFrame);
 
+void MyxPredInterBi ( TComDataCU* pcCU, UInt uiPartAddr, Int iWidth, Int iHeight);
+void MyxPredInterUni(TComDataCU* pcCU, UInt uiPartAddr, Int iWidth, Int iHeight, RefPicList eRefPicList);
+Bool MyxCheckIdenticalMotion ( TComDataCU* pcCU, UInt PartAddr );
 
 TEncSlice::TEncSlice()
  : m_encCABACTableIdx(I_SLICE)
@@ -825,107 +834,17 @@ Void TEncSlice::compressSlice( TComPic* pcPic, const Bool bCompressEntireSlice, 
       
       ///!!!!!!
       if(pcPic->getSlice( 0 )->getSliceType() == I_SLICE)
-          xMyDecompressCU(pCtu, 0 , 0, iFrame);
+      {
+          
+//          xMyDecompressCU_intra(pCtu, 0 , 0, iFrame);
+          
+      }
+      else
+      {
+          xMyDecompressCU_inter(pCtu, 0 , 0, iFrame);
+      }
       
-    
-//      
-//      TComDataCU*  m_ppcCU = new TComDataCU ();
-//      m_ppcCU->copySubCU( pCtu, 0 );
-//      
-//      TComDataCU* pcCU = m_ppcCU;
-//      
-////      const ChannelType chanType = CHANNEL_TYPE_LUMA;
-//      //        const Bool NxNPUHas4Parts = ::isChroma(chanType) ? enable4ChromaPUsInIntraNxNCU(pcCU->getPic()->getChromaFormat()) : true;
-//      //        const UInt uiInitTrDepth = ( pcCU->getPartitionSize(0) != SIZE_2Nx2N && NxNPUHas4Parts ? 1 : 0 );
-//      
-//      
-//      //===== loop over partitions =====
-//      TComTURecurse tuRecurseCU(pcCU, 0);
-//      TComTURecurse tuRecurseWithPU(tuRecurseCU, false, TComTU::DONT_SPLIT);
-//      
-//      do
-//      {
-//          TComTURecurse tuRecurseChild(tuRecurseWithPU, false);
-//          do
-//          {
-//              UInt uiLog2TrSize     = tuRecurseChild.GetLog2LumaTrSize();
-//              UInt uiQTLayer        = (pcCU->getSlice()->getSPS())->getQuadtreeTULog2MaxSize() - uiLog2TrSize;
-//          
-//          
-//              TCoeff*   pcCoeff           = pcCU->getCoeff(COMPONENT_Y) + tuRecurseChild.getCoefficientOffset(COMPONENT_Y);
-//              
-//              
-//              for(int w = 0; w != pcCU->getWidth(0); w++)
-//              {
-//                  for(int h = 0; h != pcCU->getHeight(0); h++)
-//                  {
-//                      std::cout << pcCoeff[w + h * pcCU->getHeight(0)] << " ";
-//                  }
-//                  std::cout << std::endl;
-//              }
-//              
-//              std::cout << std::endl;
-//              
-//              
-//          
-//          } while (tuRecurseChild.nextSection(tuRecurseWithPU) );
-//      } while (tuRecurseWithPU.nextSection(tuRecurseCU));
-//      
-////      
-////      
-////      TCoeff*   pcCoeff           = pcCU->getCoeff(COMPONENT_Y) + 0;
-////      
-////      
-////      for(int w = 0; w != pcCU->getWidth(0); w++)
-////      {
-////          for(int h = 0; h != pcCU->getHeight(0); h++)
-////          {
-////              std::cout << pcCoeff[w + h * pcCU->getHeight(0)] << " ";
-////          }
-////          std::cout << std::endl;
-////      }
-//      
-////      std::cout << std::endl;
-//      
-////      pcCoeff[0] = 1000;
-//      
-//      TrolololDeQuantCnt2++;
-//      std::cout << "TrolololDeQuantCnt2 = " <<  TrolololDeQuantCnt2 << std::endl;
-      
-//
-//  {
-//      
-//       isNormalDequant = (false);
-//      
-//      TComPrediction predict;
-//      predict.initTempBuff(m_picYuvPred.getChromaFormat());
-//      
-//      TDecEntropy decEntropy;
-//      decEntropy.init(&predict);
-//      
-//      TComTrQuant TrQuant;
-//      TrQuant.init(pcSlice->getSPS()->getMaxTrSize());
-//
-//      TDecCu decCu;
-//      decCu.create ( pcSlice->getSPS()->getMaxTotalCUDepth(),
-//                    pcSlice->getSPS()->getMaxCUWidth(),
-//                    pcSlice->getSPS()->getMaxCUHeight(),
-//                    pcSlice->getSPS()->getChromaFormatIdc() );
-//      decCu.init(&decEntropy, &TrQuant, &predict);
-//      
-//      if(pcSlice->getSliceType() == I_SLICE)
-//          decCu.decompressCtu(pCtu,isNormalDequant);
-//      
-//  }
-//      
-//      {
-////          TCoeff*   pcCoeff           = pCtu->getCoeff(COMPONENT_Y);
-////          
-////          TCoeff ind = pcCoeff[0];
-////          pcCoeff[0] = 1000;
-//      }
-//      
-      
+   
       
       //       g_isNormalDequant = (true);
 
@@ -1097,8 +1016,14 @@ bool isValid( TCoeff* pcCoeff, int W,  int H)
 
 
 
-Void xMyDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth, int iFrame)
+Void xMyDecompressCU_intra( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth, int iFrame)
 {
+    TComPrediction pcPrediction;
+    
+    if(iFrame != 0)
+        int i =0;
+    
+    
     initFile();
     
     TComPic* pcPic = pCtu->getPic();
@@ -1111,6 +1036,9 @@ Void xMyDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth, int iF
     UInt uiRPelX   = uiLPelX + (sps.getMaxCUWidth()>>uiDepth)  - 1;
     UInt uiTPelY   = pCtu->getCUPelY() + g_auiRasterToPelY[ g_auiZscanToRaster[uiAbsPartIdx] ];
     UInt uiBPelY   = uiTPelY + (sps.getMaxCUHeight()>>uiDepth) - 1;
+    
+    UInt uiLPelX_bak = uiLPelX;
+    UInt uiTPelY_bak = uiTPelY;
     
     if( ( uiRPelX >= sps.getPicWidthInLumaSamples() ) || ( uiBPelY >= sps.getPicHeightInLumaSamples() ) )
     {
@@ -1129,7 +1057,7 @@ Void xMyDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth, int iF
             
             if( ( uiLPelX < sps.getPicWidthInLumaSamples() ) && ( uiTPelY < sps.getPicHeightInLumaSamples() ) )
             {
-                xMyDecompressCU(pCtu, uiIdx, uiNextDepth, iFrame );
+                xMyDecompressCU_intra(pCtu, uiIdx, uiNextDepth, iFrame );
             }
             
             uiIdx += uiQNumParts;
@@ -1152,7 +1080,7 @@ Void xMyDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth, int iF
     const Bool NxNPUHas4Parts = ::isChroma(chanType) ? enable4ChromaPUsInIntraNxNCU(pcCU->getPic()->getChromaFormat()) : true;
     const UInt uiInitTrDepth = ( pcCU->getPartitionSize(0) != SIZE_2Nx2N && NxNPUHas4Parts ? 1 : 0 );
     
-    
+    auto compID = COMPONENT_Y;
     
     
     TComTURecurse tuRecurseCU(pcCU, 0);
@@ -1161,69 +1089,151 @@ Void xMyDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth, int iF
     do
     {
         
+        UInt uiTrDepth    = rTu.GetTransformDepthRel();
+        UInt uiTrMode     = pcCU->getTransformIdx( uiAbsPartIdx );
+        
+        if(uiTrDepth != uiTrMode)
+            continue;
+        
+        
+        const UInt uiChPredMode  = pcCU->getIntraDir( toChannelType(compID), uiAbsPartIdx );
+        
+        const Bool bUseFilteredPredictions=TComPrediction::filteringIntraReferenceSamples(compID, uiChPredMode,
+            rTu.getRect(COMPONENT_Y).width,
+            rTu.getRect(COMPONENT_Y).height,
+            rTu.GetChromaFormat(),
+            pcCU->getSlice()->getSPS()->getSpsRangeExtension().getIntraSmoothingDisabledFlag());
+        
+        
         auto offset = rTu.getCoefficientOffset(COMPONENT_Y);
         TCoeff*   pcCoeff = pcCU->getCoeff(COMPONENT_Y) + rTu.getCoefficientOffset(COMPONENT_Y);
         
-        for(int w = 0; w != rTu.getRect(COMPONENT_Y).width; w++)
-        {
-            for(int h = 0; h != rTu.getRect(COMPONENT_Y).height; h++)
-            {
-                std::cout << pcCoeff[w + h * rTu.getRect(COMPONENT_Y).width] << " ";
-            }
-            std::cout << std::endl;
-        }
         
-        std::cout << std::endl;
+        // позиция вставки
         
-        
-        int ii = 0;
+        // позиция вставки
+        int ii = 2;
         int i = (ii*rTu.getRect(COMPONENT_Y).width)+ii;
-//        
-//        if ( ( rand() % 2000) < 4 &&
-//            isGood(pcCoeff , rTu.getRect(COMPONENT_Y).width, rTu.getRect(COMPONENT_Y).height, ii) &&
-//            !isVoid(pcCoeff , rTu.getRect(COMPONENT_Y).width, rTu.getRect(COMPONENT_Y).height) &&
-//            (pcCoeff[i] != 0) &&
-//            rTu.getRect(COMPONENT_Y).width * rTu.getRect(COMPONENT_Y).height > i)
+//        int i = (ii * rTu.getRect(COMPONENT_Y).width);
+        
+        
+        if(rTu.getRect(COMPONENT_Y).x0 + uiLPelX == 128 &&
+           rTu.getRect(COMPONENT_Y).y0 + uiTPelY == 136)
+            int ij = 0;
+        
+        iCount++;
+        
+        if ( /*( rand() % 2000) < 0 &&*/
+            !pcCU->getTransformSkip(uiAbsPartIdx, compID) &&
+            isGood(pcCoeff , rTu.getRect(COMPONENT_Y).width, rTu.getRect(COMPONENT_Y).height, ii) &&
+            !isVoid(pcCoeff , rTu.getRect(COMPONENT_Y).width, rTu.getRect(COMPONENT_Y).height) &&
+            rTu.getRect(COMPONENT_Y).width * rTu.getRect(COMPONENT_Y).height > i)
         {
 
-//            if(TrolololDeQuantCnt2 == 0)
+            if(rTu.getRect(COMPONENT_Y).x0 + uiLPelX == 128 &&
+               rTu.getRect(COMPONENT_Y).y0 + uiTPelY == 136)
+                int i = 0;
+            
+            
+//            std::cout << rTu.getRect(COMPONENT_Y).width << "x" << rTu.getRect(COMPONENT_Y).height << " channel " << compID << " TU at input to dequantiser\n";
+//            printBlock(pcCoeff, rTu.getRect(COMPONENT_Y).width, rTu.getRect(COMPONENT_Y).height, rTu.getRect(COMPONENT_Y).width);
+//
+            // вставка в диагональ
+//            if(pcCoeff[i] != 0 )
 //            {
-////                TrolololDeQuantCnt2++;
-//                pcCoeff[0] = 1000;
-//                pcCoeff[1] = 0;
-//                pcCoeff[8] = 0;
-//                
-//                
-//                return;
-//                
-//                
-//            }
-//            else
-//                return;
-            
-            
-//            pcCoeff[i] = pcCoeff[i] / abs(pcCoeff[i])  *  (pcCoeff[i]%2 == 0 ? abs(pcCoeff[i]) : abs(pcCoeff[i]) + 1 );
-            
-            pcCoeff[i] = 1000;
+            if(pcCoeff[0] > 5 &&
+               pcCoeff[0] >= pcCoeff[rTu.getRect(COMPONENT_Y).width] * 2 &&
+               pcCoeff[0] >= pcCoeff[1] * 2 &&
+               pcCoeff[rTu.getRect(COMPONENT_Y).width] != 0 &&
+               pcCoeff[1] != 0 &&
+               abs(pcCoeff[i]) != 1 &&
+               rTu.getRect(COMPONENT_Y).width <= 8 //&&
+               /*( rand() % 552) < 100*/)
+            {
+//                pcCoeff[i] = pcCoeff[i] / abs(pcCoeff[i])  *  ( abs(pcCoeff[i]) + 4);
 
-            FILEOut << iFrame << "\t"
-                    << rTu.GetLog2LumaTrSize() << "\t"
-                    << rTu.getRect(COMPONENT_Y).width << "\t"
-                    << rTu.getRect(COMPONENT_Y).height << "\t"
-                    << pcCU->m_uiCUPelX << "\t"
-                    << pcCU->m_uiCUPelY << std::endl;
+              // вставка по модулю 4
+                
+                int iRANDOM_VALUE = rand()%2;
+//
+//                
+//                auto currMod = abs(pcCoeff[i]%4);
+//                if(currMod == 0)
+//                {
+//                    if(iRANDOM_VALUE == 0)
+//                    {
+//                        
+//                    }
+//                    else if (iRANDOM_VALUE == 1)
+//                    {
+//                        pcCoeff[i] = pcCoeff[i] / abs(pcCoeff[i])  *  ( abs(pcCoeff[i]) - 1);
+//                    }
+//                }
+//                else if(currMod == 1)
+//                {
+//                    if(iRANDOM_VALUE == 0)
+//                    {
+//                        
+//                    }
+//                    else if (iRANDOM_VALUE == 1)
+//                    {
+//                        pcCoeff[i] = pcCoeff[i] / abs(pcCoeff[i])  *  ( abs(pcCoeff[i]) - 2);
+//                    }
+//                }
+//                else if(currMod == 2)
+//                {
+//                    if(iRANDOM_VALUE == 0)
+//                    {
+//                        pcCoeff[i] = pcCoeff[i] / abs(pcCoeff[i])  *  ( abs(pcCoeff[i]) - 1);
+//                    }
+//                    else if (iRANDOM_VALUE == 1)
+//                    {
+//                        
+//                    }
+//                }
+//                else if(currMod == 3)
+//                {
+//                    if(iRANDOM_VALUE == 0)
+//                    {
+//                        pcCoeff[i] = pcCoeff[i] / abs(pcCoeff[i])  *  ( abs(pcCoeff[i]) - 2);
+//                    }
+//                    else if (iRANDOM_VALUE == 1)
+//                    {
+//                        
+//                    }
+//                }
+                
+                
+//                pcCoeff[i] = pcCoeff[i] / abs(pcCoeff[i])  *  (pcCoeff[i]%2 == 0 ? abs(pcCoeff[i]) : abs(pcCoeff[i]) - 1 );
+//
+//            // вставка в крайние элементы
+//            int iTop = 2;
+//            int iLeft = 2 * rTu.getRect(COMPONENT_Y).width;
+//            
+//            int iTop1 = 1;
+//            int iLeft1 = 1 * rTu.getRect(COMPONENT_Y).width;
+//            
+//            if( pcCoeff[iTop] != 0 && pcCoeff[iLeft] != 0 /*&& rTu.getRect(COMPONENT_Y).width == 4 *//*&& ( rand() % 3656) < 150*/)
+//            {
+//                pcCoeff[iLeft]  = pcCoeff[iLeft] / abs(pcCoeff[iLeft]) * (pcCoeff[iLeft]%2 == 0 ? abs(pcCoeff[iLeft])   : abs(pcCoeff[iLeft]) + 1 );
+//                pcCoeff[iTop]   = pcCoeff[iTop] / abs(pcCoeff[iTop]) * (pcCoeff[iTop]%2 == 0    ? abs(pcCoeff[iTop])    : abs(pcCoeff[iTop]) + 1 );
+//                pcCoeff[i]      = pcCoeff[i] / abs(pcCoeff[i]) * (pcCoeff[i]%2 == 0             ? abs(pcCoeff[i])       : abs(pcCoeff[i]) + 1 );
+//                
+//                pcCoeff[iLeft1] = pcCoeff[iLeft1] / abs(pcCoeff[iLeft1]) * (pcCoeff[iLeft1]%2 == 0  ? abs(pcCoeff[iLeft1])  : abs(pcCoeff[iLeft1]) + 1 );
+//                pcCoeff[iTop1]  = pcCoeff[iTop1] / abs(pcCoeff[iTop1]) * (pcCoeff[iTop1]%2 == 0     ? abs(pcCoeff[iTop1])   : abs(pcCoeff[iTop1]) + 1 );
+//                pcCoeff[0]      = pcCoeff[0] / abs(pcCoeff[0]) * (pcCoeff[0]%2 == 0                 ? abs(pcCoeff[0])       : abs(pcCoeff[0]) + 1 );
+//
             
-            
-            int sum = 0;
-            for(int i = 0; i != rTu.getRect(COMPONENT_Y).width * rTu.getRect(COMPONENT_Y).height; i++)
-                sum += abs(pcCoeff[i]);
-            
-            
-            int hash = rTu.getRect(COMPONENT_Y).width * rTu.getRect(COMPONENT_Y).height * sum;
-
-            
-            TrolololDeQuantCnt2++;
-            std::cout << "TrolololDeQuantCnt2 = " <<  TrolololDeQuantCnt2 << "   " << hash << std::endl;
+                FILEOut << iFrame << "\t"
+                << rTu.GetLog2LumaTrSize() << "\t"
+                << rTu.getRect(COMPONENT_Y).width << "\t"
+                << rTu.getRect(COMPONENT_Y).height << "\t"
+                << rTu.getRect(COMPONENT_Y).x0 + uiLPelX << "\t"
+                << rTu.getRect(COMPONENT_Y).y0 + uiTPelY << "\t"
+                << rTu.getCoefficientOffset(compID) << "\t"
+                << rTu.useDST(compID) << "\t"
+                << iRANDOM_VALUE << std::endl;
+            }
         }
         
         
@@ -1234,12 +1244,154 @@ Void xMyDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth, int iF
     
 }
 
+
+
+Void xMyDecompressCU_inter( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth, int iFrame)
+{
+    TComPrediction pcPrediction;
+    
+    if(iFrame != 0)
+        int i =0;
     
     
+    initFile();
+    
+    TComPic* pcPic = pCtu->getPic();
+    
+    TComSlice * pcSlice = pCtu->getSlice();
+    const TComSPS &sps=*(pcSlice->getSPS());
+    
+    Bool bBoundary = false;
+    UInt uiLPelX   = pCtu->getCUPelX() + g_auiRasterToPelX[ g_auiZscanToRaster[uiAbsPartIdx] ];
+    UInt uiRPelX   = uiLPelX + (sps.getMaxCUWidth()>>uiDepth)  - 1;
+    UInt uiTPelY   = pCtu->getCUPelY() + g_auiRasterToPelY[ g_auiZscanToRaster[uiAbsPartIdx] ];
+    UInt uiBPelY   = uiTPelY + (sps.getMaxCUHeight()>>uiDepth) - 1;
+    
+    UInt uiLPelX_bak = uiLPelX;
+    UInt uiTPelY_bak = uiTPelY;
+    
+    if( ( uiRPelX >= sps.getPicWidthInLumaSamples() ) || ( uiBPelY >= sps.getPicHeightInLumaSamples() ) )
+    {
+        bBoundary = true;
+    }
+    
+    if( ( ( uiDepth < pCtu->getDepth( uiAbsPartIdx ) ) && ( uiDepth < sps.getLog2DiffMaxMinCodingBlockSize() ) ) || bBoundary )
+    {
+        UInt uiNextDepth = uiDepth + 1;
+        UInt uiQNumParts = pCtu->getTotalNumPart() >> (uiNextDepth<<1);
+        UInt uiIdx = uiAbsPartIdx;
+        for ( UInt uiPartIdx = 0; uiPartIdx < 4; uiPartIdx++ )
+        {
+            uiLPelX = pCtu->getCUPelX() + g_auiRasterToPelX[ g_auiZscanToRaster[uiIdx] ];
+            uiTPelY = pCtu->getCUPelY() + g_auiRasterToPelY[ g_auiZscanToRaster[uiIdx] ];
+            
+            if( ( uiLPelX < sps.getPicWidthInLumaSamples() ) && ( uiTPelY < sps.getPicHeightInLumaSamples() ) )
+            {
+                xMyDecompressCU_inter(pCtu, uiIdx, uiNextDepth, iFrame );
+            }
+            
+            uiIdx += uiQNumParts;
+        }
+        return;
+    }
     
     
+//    TComDataCU*  pcCU = new TComDataCU ();
+//    pcCU->copySubCU( pCtu, uiAbsPartIdx );
     
-    Void TEncSlice::encodeSlice   ( TComPic* pcPic, TComOutputBitstream* pcSubstreams, UInt &numBinsCoded )
+    if(pCtu->getPredictionMode(0) != MODE_INTER)
+        return;
+    
+    
+    Int         iWidth;
+    Int         iHeight;
+    UInt        uiPartAddr;
+    
+    for (int iPartIdx = 0; iPartIdx < pCtu->getNumPartitions(); iPartIdx++ )
+    {
+        pCtu->getPartIndexAndSize( iPartIdx, uiPartAddr, iWidth, iHeight );
+//        auto refList = REF_PIC_LIST_0; /// only list L1
+        
+        MyxPredInterBi(pCtu, uiPartAddr, iWidth, iHeight);
+        
+//        if(MyxCheckIdenticalMotion(pCtu, iPartIdx))
+//        {
+//            MyxPredInterUni(pCtu, uiPartAddr, iWidth, iHeight,refList);
+//        }
+//        else
+//        {
+////            xPredInterBi  (pcCU, uiPartAddr, iWidth, iHeight, pcYuvPred );
+//        }
+    }
+}
+
+void MyxPredInterBi ( TComDataCU* pcCU, UInt uiPartAddr, Int iWidth, Int iHeight)
+{
+    TComYuv* pcMbYuv;
+    Int      iRefIdx[NUM_REF_PIC_LIST_01] = {-1, -1};
+    
+    for ( UInt refList = 0; refList < NUM_REF_PIC_LIST_01; refList++ )
+    {
+        RefPicList eRefPicList = (refList ? REF_PIC_LIST_1 : REF_PIC_LIST_0);
+        iRefIdx[refList] = pcCU->getCUMvField( eRefPicList )->getRefIdx( uiPartAddr );
+        
+        if ( iRefIdx[refList] < 0 )
+        {
+            continue;
+        }
+        
+        assert( iRefIdx[refList] < pcCU->getSlice()->getNumRefIdx(eRefPicList) );
+        
+        if( pcCU->getCUMvField( REF_PIC_LIST_0 )->getRefIdx( uiPartAddr ) >= 0 && pcCU->getCUMvField( REF_PIC_LIST_1 )->getRefIdx( uiPartAddr ) >= 0 )
+        {
+            MyxPredInterUni ( pcCU, uiPartAddr, iWidth, iHeight, eRefPicList );
+        }
+        else
+        {
+            if ( ( pcCU->getSlice()->getPPS()->getUseWP()       && pcCU->getSlice()->getSliceType() == P_SLICE ) ||
+                ( pcCU->getSlice()->getPPS()->getWPBiPred()    && pcCU->getSlice()->getSliceType() == B_SLICE ) )
+            {
+                MyxPredInterUni ( pcCU, uiPartAddr, iWidth, iHeight, eRefPicList );
+            }
+            else
+            {
+                MyxPredInterUni ( pcCU, uiPartAddr, iWidth, iHeight, eRefPicList );
+            }
+        }
+    }
+}
+
+void MyxPredInterUni(TComDataCU* pcCU, UInt uiPartAddr, Int iWidth, Int iHeight, RefPicList eRefPicList)
+{
+    TComMv      cMv         = pcCU->getCUMvField( eRefPicList )->getMv( uiPartAddr );
+    
+//    cMv.setHor(1000);
+//    cMv.setVer(0);
+    
+    pcCU->getCUMvField( eRefPicList )->setMv(uiPartAddr, cMv);
+    
+    int i = 0 ;
+}
+
+Bool MyxCheckIdenticalMotion ( TComDataCU* pcCU, UInt PartAddr )
+{
+    if( pcCU->getSlice()->isInterB() && !pcCU->getSlice()->getPPS()->getWPBiPred() )
+    {
+        if( pcCU->getCUMvField(REF_PIC_LIST_0)->getRefIdx(PartAddr) >= 0 && pcCU->getCUMvField(REF_PIC_LIST_1)->getRefIdx(PartAddr) >= 0)
+        {
+            Int RefPOCL0 = pcCU->getSlice()->getRefPic(REF_PIC_LIST_0, pcCU->getCUMvField(REF_PIC_LIST_0)->getRefIdx(PartAddr))->getPOC();
+            Int RefPOCL1 = pcCU->getSlice()->getRefPic(REF_PIC_LIST_1, pcCU->getCUMvField(REF_PIC_LIST_1)->getRefIdx(PartAddr))->getPOC();
+            if(RefPOCL0 == RefPOCL1 && pcCU->getCUMvField(REF_PIC_LIST_0)->getMv(PartAddr) == pcCU->getCUMvField(REF_PIC_LIST_1)->getMv(PartAddr))
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+
+Void TEncSlice::encodeSlice   ( TComPic* pcPic, TComOutputBitstream* pcSubstreams, UInt &numBinsCoded )
 {
   TComSlice *const pcSlice           = pcPic->getSlice(getSliceIdx());
 

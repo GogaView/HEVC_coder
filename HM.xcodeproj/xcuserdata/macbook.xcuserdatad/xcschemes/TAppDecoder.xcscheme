@@ -63,12 +63,16 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
+            argument = "-b output.hevc -o mobile_out_new_1.yuv"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "-c test.cfg  -i mobile_cif.yuv"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-b output.hevc -o mobile_out_new.yuv"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>

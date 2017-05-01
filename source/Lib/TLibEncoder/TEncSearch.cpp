@@ -1168,7 +1168,7 @@ Void TEncSearch::xIntraCodingTUBlock(       TComYuv*    pcOrgYuv,
     
     
 #if DEBUG_TRANSFORM_AND_QUANTISE
-    std::cout << g_debugCounter << ": " << uiWidth << "x" << uiHeight << " channel " << compID << " Test \n";
+    std::cout << g_debugCounter << ": " << uiWidth << "x" << uiHeight << " channel " << compID << " origin \n";
     printBlock(piOrg, uiWidth, uiHeight, uiStride);
 #endif
     

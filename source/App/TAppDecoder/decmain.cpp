@@ -39,6 +39,8 @@
 #include <stdio.h>
 #include <time.h>
 #include "TAppDecTop.h"
+#include "../FileReader.h"
+
 
 //! \ingroup TAppDecoder
 //! \{
@@ -49,6 +51,10 @@
 
 int main(int argc, char* argv[])
 {
+    
+    openFile("Position");
+    
+    
   Int returnCode = EXIT_SUCCESS;
   TAppDecTop  cTAppDecTop;
 
@@ -77,6 +83,8 @@ int main(int argc, char* argv[])
 
   // call decoding function
   cTAppDecTop.decode();
+    
+    auto copy = cfg::vCONFIG;
 
   if (cTAppDecTop.getNumberOfChecksumErrorsDetected() != 0)
   {

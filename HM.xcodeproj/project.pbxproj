@@ -155,6 +155,7 @@
 		DBC9C9521447855200A77A93 /* WeightPredAnalysis.h in Headers */ = {isa = PBXBuildFile; fileRef = DBC9C9501447855200A77A93 /* WeightPredAnalysis.h */; };
 		DBDDB3AB13E26B4400A70251 /* TComInterpolationFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBDDB3A913E26B4400A70251 /* TComInterpolationFilter.cpp */; };
 		DBDDB3AC13E26B4400A70251 /* TComInterpolationFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = DBDDB3AA13E26B4400A70251 /* TComInterpolationFilter.h */; };
+		FA5ECF9E1E4A482F00E235E0 /* FileReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA5ECF9D1E4A482F00E235E0 /* FileReader.cpp */; };
 		FAE3363C1D1999C5009609A0 /* DecoderInEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAE3363A1D1999C5009609A0 /* DecoderInEncoder.cpp */; };
 		FAE3363D1D1999C5009609A0 /* DecoderInEncoder.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FAE3363B1D1999C5009609A0 /* DecoderInEncoder.hpp */; };
 		FAE336401D1C7BB3009609A0 /* libTLibDecoder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 676795F411AD621A00421804 /* libTLibDecoder.a */; };
@@ -378,6 +379,8 @@
 		DBC9C9501447855200A77A93 /* WeightPredAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeightPredAnalysis.h; path = source/Lib/TLibEncoder/WeightPredAnalysis.h; sourceTree = "<group>"; };
 		DBDDB3A913E26B4400A70251 /* TComInterpolationFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TComInterpolationFilter.cpp; path = source/Lib/TLibCommon/TComInterpolationFilter.cpp; sourceTree = "<group>"; };
 		DBDDB3AA13E26B4400A70251 /* TComInterpolationFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TComInterpolationFilter.h; path = source/Lib/TLibCommon/TComInterpolationFilter.h; sourceTree = "<group>"; };
+		FA5ECF9C1E4A378B00E235E0 /* FileReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileReader.h; path = source/FileReader.h; sourceTree = "<group>"; };
+		FA5ECF9D1E4A482F00E235E0 /* FileReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileReader.cpp; path = source/FileReader.cpp; sourceTree = "<group>"; };
 		FAE3363A1D1999C5009609A0 /* DecoderInEncoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DecoderInEncoder.cpp; path = source/Test/DecoderInEncoder.cpp; sourceTree = "<group>"; };
 		FAE3363B1D1999C5009609A0 /* DecoderInEncoder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = DecoderInEncoder.hpp; path = source/Test/DecoderInEncoder.hpp; sourceTree = "<group>"; };
 		FAFE02961C9EE907006F0EA8 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Test.h; path = source/Test.h; sourceTree = "<group>"; };
@@ -467,6 +470,8 @@
 				6767964E11AD629700421804 /* TLibVideoIO */,
 				FAE3363A1D1999C5009609A0 /* DecoderInEncoder.cpp */,
 				FAE3363B1D1999C5009609A0 /* DecoderInEncoder.hpp */,
+				FA5ECF9C1E4A378B00E235E0 /* FileReader.h */,
+				FA5ECF9D1E4A482F00E235E0 /* FileReader.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -967,6 +972,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5ECF9E1E4A482F00E235E0 /* FileReader.cpp in Sources */,
 				676795CE11AD61FC00421804 /* TComBitStream.cpp in Sources */,
 				676795D011AD61FC00421804 /* TComDataCU.cpp in Sources */,
 				676795D311AD61FC00421804 /* TComLoopFilter.cpp in Sources */,

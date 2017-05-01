@@ -39,7 +39,104 @@
 #include "TLibCommon/TComTU.h"
 #include "TLibCommon/TComPrediction.h"
 
+#include <set>
+#include <map>
+#include <fstream>
+#include "FileReader.h"
+
 static long long int g_Count;
+
+static std::ofstream ofFile;
+
+void _addToFile(std::string str)
+{
+    if(!ofFile.is_open())
+    {
+        ofFile.open("Pred.txt");
+    }
+    
+    ofFile << str;
+}
+
+void _addNoise(TComTU &rTu, Pel * pcCoeff, int uiStride)
+{
+    srand(time(NULL));
+    
+    const TComRectangle &rect = rTu.getRect(COMPONENT_Y);
+    const UInt uiWidth = rect.width;
+    const UInt uiHeight = rect.height;
+    
+    
+    int iCount = (double)(uiWidth*uiHeight) / 100 * 50;
+    
+    std::set< std::pair<int,int> > setPos;
+    
+    for(int i = 0; i < iCount;)
+    {
+        int w = rand()%uiWidth;
+        int h = rand()%uiHeight;
+        std::pair<int,int> pair = std::make_pair(w, h);
+        
+        if(setPos.find(pair) != setPos.end())
+        {
+            continue;
+        }
+        else
+        {
+            setPos.insert(pair);
+            pcCoeff[h*(uiStride) +w] = /*rand()%2 ? 0 : 255*/ 0;
+            i++;
+        }
+        
+        
+    }
+}
+
+int _getMidle(int h, int w, TComTU &rTu, Pel * pcCoeff, int uiStride)
+{
+    int iSize = 0;
+    
+    
+    const TComRectangle &rect = rTu.getRect(COMPONENT_Y);
+    const UInt uiWidth = rect.width;
+    const UInt uiHeight = rect.height;
+    
+    int iValue = 0;
+    for(int i = -iSize; i < iSize+1; i++)
+    {
+        for(int j = -iSize; j < iSize+1; j++)
+        {
+            int iIndexW = (w + j < 0) ? 0 : (w + j >= uiWidth ? uiWidth - 1 : w + j );
+            int iIndexH = (h + i < 0) ? 0 : (h + i >= uiHeight ? uiHeight - 1 : h + i );
+            
+            iValue += (unsigned)pcCoeff[iIndexW + iIndexH*uiStride];
+        }
+    }
+    
+    return iValue / ( (2*iSize + 1) * (2*iSize + 1));
+}
+
+
+void _addFilter(TComTU &rTu, Pel * pcCoeff, int uiStride)
+{
+    const TComRectangle &rect = rTu.getRect(COMPONENT_Y);
+    const UInt uiWidth = rect.width;
+    const UInt uiHeight = rect.height;
+    
+    Pel* pcCoeff1 = new Pel[uiHeight*uiStride];
+    std::memcpy(pcCoeff1, pcCoeff, uiHeight*uiStride*sizeof(Pel));
+    
+    for(int i = 0; i < uiHeight; i++)
+    {
+        for(int j = 0; j < uiWidth; j++)
+        {
+            pcCoeff[i*(uiStride)+j] = _getMidle(i, j, rTu, pcCoeff1, uiStride);
+        }
+    }
+    
+}
+
+
 
 //! \ingroup TLibDecoder
 //! \{
@@ -368,6 +465,9 @@ Void TDecCu::xDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth ,
     {
       uiLPelX = pCtu->getCUPelX() + g_auiRasterToPelX[ g_auiZscanToRaster[uiIdx] ];
       uiTPelY = pCtu->getCUPelY() + g_auiRasterToPelY[ g_auiZscanToRaster[uiIdx] ];
+        
+        if(uiLPelX == 184 && uiTPelY == 144)
+            int i = 0;
 
       if( ( uiLPelX < sps.getPicWidthInLumaSamples() ) && ( uiTPelY < sps.getPicHeightInLumaSamples() ) )
       {
@@ -395,7 +495,7 @@ Void TDecCu::xDecompressCU( TComDataCU* pCtu, UInt uiAbsPartIdx,  UInt uiDepth ,
       break;
     case MODE_INTRA:        //внутри
 //          return;
-      xReconIntraQT( m_ppcCU[uiDepth], uiDepth, isNormalDequant, m_ppcCU[uiDepth]->getCUPelX(), m_ppcCU[uiDepth]->getCUPelY());
+      xReconIntraQT( m_ppcCU[uiDepth], uiDepth, isNormalDequant, m_ppcCU[uiDepth]->getCUPelX(), m_ppcCU[uiDepth]->getCUPelY(), uiLPelX, uiTPelY);
           return;
       break;
     default:
@@ -472,7 +572,8 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
                       const ComponentID compID,
                             TComTU     &rTu,
                             bool isNormalDequant,
-                            UInt        uiDepth)
+                            UInt        uiDepth,
+                            int  uiLPelX, int uiTPelY)
 {
   if (!rTu.ProcessComponentSection(compID))
   {
@@ -538,7 +639,7 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
 
   //===== inverse transform =====
   Pel*      piResi            = pcResiYuv->getAddr( compID, uiAbsPartIdx );
-    auto i = rTu.getCoefficientOffset(compID);
+  auto i                      = rTu.getCoefficientOffset(compID);
   TCoeff*   pcCoeff           = pcCU->getCoeff(compID) + rTu.getCoefficientOffset(compID);//( uiNumCoeffInc * uiAbsPartIdx );
 
     
@@ -554,6 +655,17 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
   if (pcCU->getCbf(uiAbsPartIdx, compID, rTu.GetTransformDepthRel()) != 0)
   {
     m_pcTrQuant->invTransformNxN( rTu, compID, piResi, uiStride, pcCoeff, cQP DEBUG_STRING_PASS_INTO(psDebug) ,isNormalDequant , uiDepth  );
+      
+//      _addNoise(rTu, piResi, uiStride);
+////      _addFilter(rTu, piResi, uiStride);
+//      
+//      int iZero = 0;
+//      m_pcTrQuant->transformNxN(rTu, compID, piResi, uiStride, pcCoeff,iZero, cQP);
+//      
+////      isNormalDequant = false;
+//      m_pcTrQuant->invTransformNxN( rTu, compID, piResi, uiStride, pcCoeff, cQP DEBUG_STRING_PASS_INTO(psDebug) ,isNormalDequant , uiDepth  );
+//      
+//      isNormalDequant = true;
       
       if(!isNormalDequant)
           return;
@@ -608,6 +720,40 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
   {
     TComTrQuant::crossComponentPrediction( rTu, compID, pResiLuma, piResi, piResi, uiWidth, uiHeight, strideLuma, uiStride, uiStride, true );
   }
+   
+//    if(compID == COMPONENT_Y)
+//    {
+//        std::cout << uiWidth << "x" << uiHeight << " channel " << compID << " TU at input to dequantiser\n";
+//        printBlock(pcCoeff, uiWidth, uiHeight, uiWidth);
+//    }
+    
+    
+    if((pcCU->getCbf(uiAbsPartIdx, compID, rTu.GetTransformDepthRel()) != 0) &&
+       !pcCU->getTransformSkip(uiAbsPartIdx, compID) &&
+       compID == COMPONENT_Y &&
+       isCorrectPosition(
+                                                  rTu.GetLog2LumaTrSize(),
+                                                  rTu.getRect(COMPONENT_Y).width,
+                                                  rTu.getRect(COMPONENT_Y).height,
+                                                  rTu.getRect(COMPONENT_Y).x0 + uiLPelX,
+                                                  rTu.getRect(COMPONENT_Y).y0 + uiTPelY,
+                                                  rTu.getCoefficientOffset(compID)))
+    {
+        std::cout << "count" << std::endl;
+        std::stringstream ss;
+        ss << cfg::s_CurrFrame << "\t" <<
+        rTu.GetLog2LumaTrSize() << "\t" <<
+        rTu.getRect(COMPONENT_Y).width  << "\t" <<
+        rTu.getRect(COMPONENT_Y).height  << "\t" <<
+        rTu.getRect(COMPONENT_Y).x0 + uiLPelX  << "\t" <<
+        rTu.getRect(COMPONENT_Y).y0 + uiTPelY << "\t" <<
+        rTu.getCoefficientOffset(compID) << "\t"
+        << rTu.useDST(compID) << std::endl;
+        
+        _addToFile(ss.str());
+        
+    }
+    
 
   for( UInt uiY = 0; uiY < uiHeight; uiY++ )
   {
@@ -634,10 +780,12 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
     for( UInt uiX = 0; uiX < uiWidth; uiX++ )
     {
 #if DEBUG_STRING
-      if (bDebugResi)
-      {
-        ss << pResi[ uiX ] << ", ";
-      }
+//      if (bDebugResi)
+////        if (true)
+//        
+//      {
+//        ss << pResi[ uiX ] << ", ";
+//      }
 #endif
 #if O0043_BEST_EFFORT_DECODING
       pReco    [ uiX ] = ClipBD( rightShiftEvenRounding<Pel>(pPred[ uiX ] + pResi[ uiX ], bitDepthDelta), clipbd );
@@ -646,17 +794,46 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
 #endif
       pRecIPred[ uiX ] = pReco[ uiX ];
     }
+     
+      
+      /// print pred to file
+      if((pcCU->getCbf(uiAbsPartIdx, compID, rTu.GetTransformDepthRel()) != 0) &&
+         !pcCU->getTransformSkip(uiAbsPartIdx, compID) &&
+         compID == COMPONENT_Y &&
+         isCorrectPosition(rTu.GetLog2LumaTrSize(),
+                                                    rTu.getRect(COMPONENT_Y).width,
+                                                    rTu.getRect(COMPONENT_Y).height,
+                                                    rTu.getRect(COMPONENT_Y).x0 + uiLPelX,
+                                                    rTu.getRect(COMPONENT_Y).y0 + uiTPelY,
+                                                    rTu.getCoefficientOffset(compID)))
+      {
+          for( UInt uiX = 0; uiX < uiWidth; uiX++ )
+          {
+              std::stringstream ss;
+              ss << pPred[ uiX ] - pResi[ uiX ] << " ";
+              _addToFile(ss.str());
+          }
+          
+          _addToFile( "\n");
+          
+          if(uiY == uiHeight - 1)
+              _addToFile( "\n");
+      }
+      
+      
 #if DEBUG_STRING
-    if (bDebugReco)
+//    if (bDebugReco)
+        if(true)
     {
       ss << " - reco: ";
       for( UInt uiX = 0; uiX < uiWidth; uiX++ )
       {
         ss << pReco[ uiX ] << ", ";
       }
+        
     }
 
-    if (bDebugPred || bDebugResi || bDebugReco)
+    if (true || bDebugPred || bDebugResi || bDebugReco)
     {
       ss << "\n";
     }
@@ -670,7 +847,7 @@ TDecCu::xIntraRecBlk(       TComYuv*    pcRecoYuv,
 
 
 Void
-TDecCu::xReconIntraQT( TComDataCU* pcCU, UInt uiDepth, bool isNormalDequant, UInt ctuX, UInt ctuY )
+TDecCu::xReconIntraQT( TComDataCU* pcCU, UInt uiDepth, bool isNormalDequant, UInt ctuX, UInt ctuY ,int  uiLPelX, int uiTPelY)
 {
     
   if (pcCU->getIPCMFlag(0))
@@ -688,10 +865,10 @@ TDecCu::xReconIntraQT( TComDataCU* pcCU, UInt uiDepth, bool isNormalDequant, UIn
 
     TComTURecurse tuRecurseCU(pcCU, 0);
     TComTURecurse tuRecurseWithPU(tuRecurseCU, false, (uiInitTrDepth==0)?TComTU::DONT_SPLIT : TComTU::QUAD_SPLIT);
-
+      
       do
     {
-      xIntraRecQT( m_ppcYuvReco[uiDepth], m_ppcYuvReco[uiDepth], m_ppcYuvResi[uiDepth], chanType, tuRecurseWithPU,isNormalDequant ,uiDepth, ctuX, ctuY );
+      xIntraRecQT( m_ppcYuvReco[uiDepth], m_ppcYuvReco[uiDepth], m_ppcYuvResi[uiDepth], chanType, tuRecurseWithPU,isNormalDequant ,uiDepth, ctuX, ctuY  , uiLPelX, uiTPelY);
     } while (tuRecurseWithPU.nextSection(tuRecurseCU));
   }
 }
@@ -716,7 +893,8 @@ TDecCu::xIntraRecQT(TComYuv*    pcRecoYuv,
                     TComTU     &rTu,
                     bool isNormalDequant
                     , UInt uiDepth
-                    , UInt ctuX, UInt ctuY)
+                    , UInt ctuX, UInt ctuY,
+                    int  uiLPelX , int uiTPelY)
 {
   UInt uiTrDepth    = rTu.GetTransformDepthRel();
   TComDataCU *pcCU  = rTu.getCU();
@@ -727,7 +905,7 @@ TDecCu::xIntraRecQT(TComYuv*    pcRecoYuv,
     if (isLuma(chType))
     {
         
-        xIntraRecBlk( pcRecoYuv, pcPredYuv, pcResiYuv, COMPONENT_Y,  rTu,isNormalDequant,uiDepth );
+        xIntraRecBlk( pcRecoYuv, pcPredYuv, pcResiYuv, COMPONENT_Y,  rTu,isNormalDequant,uiDepth , uiLPelX, uiTPelY);
         return;
     }
     else

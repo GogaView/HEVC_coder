@@ -97,9 +97,9 @@ protected:
 
   Void xReconInter              ( TComDataCU* pcCU, UInt uiDepth );
 
-  Void xReconIntraQT            ( TComDataCU* pcCU, UInt uiDepth, bool isNormalDequant, UInt ctuX, UInt ctuY);
-    Void xIntraRecBlk             ( TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ComponentID component, TComTU &rTu, bool isNormalDequant, UInt        uiDepth  );
-    Void xIntraRecQT              ( TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ChannelType chType, TComTU &rTu,bool isNormalDequant , UInt uiDepth, UInt ctuX, UInt ctuY );
+  Void xReconIntraQT            ( TComDataCU* pcCU, UInt uiDepth, bool isNormalDequant, UInt ctuX, UInt ctuY, int X = -1, int Y = -1);
+    Void xIntraRecBlk             ( TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ComponentID component, TComTU &rTu, bool isNormalDequant, UInt        uiDepth, int  uiLPelX = -1, int uiTPelY = -1  );
+    Void xIntraRecQT              ( TComYuv* pcRecoYuv, TComYuv* pcPredYuv, TComYuv* pcResiYuv, const ChannelType chType, TComTU &rTu,bool isNormalDequant , UInt uiDepth, UInt ctuX, UInt ctuY, int  uiLPelX = -1, int uiTPelY = -1);
 
   Void xReconPCM                ( TComDataCU* pcCU, UInt uiDepth );
 

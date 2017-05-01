@@ -236,7 +236,7 @@ protected:
   Bool     m_useTransformSkipFast;
 
   Bool     m_scalingListEnabledFlag;
-
+public:
   Int      *m_quantCoef            [SCALING_LIST_SIZE_NUM][SCALING_LIST_NUM][SCALING_LIST_REM_NUM]; ///< array of quantization matrix coefficient 4x4
   Int      *m_dequantCoef          [SCALING_LIST_SIZE_NUM][SCALING_LIST_NUM][SCALING_LIST_REM_NUM]; ///< array of dequantization matrix coefficient 4x4
   Double   *m_errScale             [SCALING_LIST_SIZE_NUM][SCALING_LIST_NUM][SCALING_LIST_REM_NUM]; ///< array of quantization matrix coefficient 4x4
@@ -261,7 +261,19 @@ private:
                      TCoeff       &uiAbsSum,
                const ComponentID   compID,
                const QpParam      &cQP );
-
+    // quantization
+    Void xQuantNoise(       TComTU       &rTu,
+                TCoeff      * pSrc,
+                TCoeff      * pDes,
+#if ADAPTIVE_QP_SELECTION
+                TCoeff      *pArlDes,
+#endif
+                TCoeff       &uiAbsSum,
+                const ComponentID   compID,
+                const QpParam      &cQP );
+    
+    
+    
 #if T0196_SELECTIVE_RDOQ
   Bool xNeedRDOQ(    TComTU       &rTu,
                      TCoeff      * pSrc,
@@ -325,8 +337,14 @@ __inline UInt              xGetCodedLevel  ( Double&          rd64CodedCost,
                 const QpParam      &cQP,
                 bool isNormalDequant,
                 UInt                uiDepth = -1);
-    
-  // inverse transform
+    Void xDeQuantDecode(       TComTU       &rTu,
+                  TCoeff      * pSrc,
+                  TCoeff      * pDes,
+                  const ComponentID   compID,
+                  const QpParam      &cQP,
+                  bool isNormalDequant,
+                  UInt                uiDepth = -1);
+    // inverse transform
   Void xIT    ( const Int channelBitDepth, Bool useDST, TCoeff* plCoef, Pel* pResidual, UInt uiStride, Int iWidth, Int iHeight, const Int maxLog2TrDynamicRange );
 
   // inverse skipping transform

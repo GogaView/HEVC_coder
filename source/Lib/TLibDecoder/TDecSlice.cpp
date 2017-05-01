@@ -36,6 +36,7 @@
 */
 
 #include "TDecSlice.h"
+#include "FileReader.h"
 
 //! \ingroup TLibDecoder
 //! \{
@@ -124,6 +125,9 @@ Void TDecSlice::decompressSlice(TComInputBitstream** ppcSubstreams, TComPic* pcP
   Bool isLastCtuOfSliceSegment = false;
   for( UInt ctuTsAddr = startCtuTsAddr; !isLastCtuOfSliceSegment && ctuTsAddr < numCtusInFrame; ctuTsAddr++)
   {
+      cfg dat;
+      
+    dat.s_CurrFrame = pcSlice->getPOC();
     const UInt ctuRsAddr = pcPic->getPicSym()->getCtuTsToRsAddrMap(ctuTsAddr);
     const TComTile &currentTile = *(pcPic->getPicSym()->getTComTile(pcPic->getPicSym()->getTileIdxMap(ctuRsAddr)));
     const UInt firstCtuRsAddrOfTile = currentTile.getFirstCtuRsAddr();

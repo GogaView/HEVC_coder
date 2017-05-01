@@ -1544,7 +1544,7 @@ Void TEncGOP::compressGOP( Int iPOCLast, Int iNumPicRcvd, TComList<TComPic*>& rc
           st_BlocksCount = 0;
         
         m_pcSliceEncoder->precompressSlice( pcPic );
-        m_pcSliceEncoder->compressSlice   ( pcPic, false, false , nextCtuTsAddr);
+        m_pcSliceEncoder->compressSlice   ( pcPic, false, false , pcSlice->getPOC()-pcSlice->getLastIDR());
           
           
         const UInt curSliceSegmentEnd = pcSlice->getSliceSegmentCurEndCtuTsAddr();
